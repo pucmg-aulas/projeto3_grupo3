@@ -7,7 +7,7 @@ A escassez de vagas de estacionamento no centro das grandes cidades brasileiras 
 
 Seu grupo de trabalho foi contratado para participar da implementação desta solução.
 
-###### Os principais requisitos do projeto são:
+##### Os principais requisitos do projeto são:
 
 - A Xulambs Parking pretende contar entre 1 e 3 parques de estacionamento na cidade;
 - Cada parque de estacionamento terá um número pré-determinado de vagas. As vagas são identificadas alfanumericamente, por exemplo, vaga Y08 (fila   Y, vaga 8).
