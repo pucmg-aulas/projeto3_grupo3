@@ -3,8 +3,11 @@
 
 ### Laboratório de Programação Modular - Projeto 3
 ---
+A escassez de vagas de estacionamento no centro das grandes cidades brasileiras é um problema bem conhecido. Pensando em explorar este ramo de negócio, a conhecida organização empresarial Xulambs Inc. está interessada em desenvolver um sistema de software para controlar seu futuro negócio, enquanto as negociações para compra dos imóveis necessários estão em andamento.
 
-Os principais requisitos do projeto são:
+Seu grupo de trabalho foi contratado para participar da implementação desta solução.
+
+###### Os principais requisitos do projeto são:
 
 - A Xulambs Parking pretende contar entre 1 e 3 parques de estacionamento na cidade;
 - Cada parque de estacionamento terá um número pré-determinado de vagas. As vagas são identificadas alfanumericamente, por exemplo, vaga Y08 (fila   Y, vaga 8).
