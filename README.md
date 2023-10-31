@@ -37,7 +37,5 @@ Seu grupo de trabalho foi contratado para participar da implementação desta so
 
 #
 
-[Link para slide](https://www.canva.com/design/DAFw5VaoI40/_cts4S9YmNo5movutXRHTA/edit?utm_content=DAFw5VaoI40&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
-
 
 
