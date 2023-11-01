@@ -7,6 +7,10 @@
  *
  * @author User
  */
+
+import view.AddVeiculoView;
+import view.ListarVagaView;
+
 public class Main extends javax.swing.JFrame {
 
     /**
@@ -40,6 +44,8 @@ public class Main extends javax.swing.JFrame {
         addVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addVeiculoActionPerformed(evt);
+                AddVeiculoView addVeiculoView = new AddVeiculoView();
+                addVeiculoView.setVisible(true);
             }
         });
         jMenu1.add(addVeiculo);
@@ -48,6 +54,8 @@ public class Main extends javax.swing.JFrame {
         addCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addClienteActionPerformed(evt);
+                ListarVagaView listarVagaView = new ListarVagaView();
+                listarVagaView.setVisible(true);
             }
         });
         jMenu1.add(addCliente);

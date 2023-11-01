@@ -53,7 +53,7 @@ public class ListarVagaView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbVagas = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        // setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnVoltar.setText("Voltar");
 

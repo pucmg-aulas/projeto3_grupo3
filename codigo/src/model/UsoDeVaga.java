@@ -1,5 +1,6 @@
 package model;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class UsoDeVaga {
@@ -16,7 +17,17 @@ public class UsoDeVaga {
     }
 
     public double sair(){
-        return 0.0;
+        this.saida = LocalDateTime.now();
+        Duration duracao = Duration.between(entrada, saida);
+        int minutos = (int) duracao.toMinutes();
+        valorPago = calcularValorPago(minutos);
+        vaga.liberar();
+        return valorPago;
+        
+    }
+
+    private double calcularValorPago(int minutos) {
+        return 0;
     }
 
     public double valorPago(){

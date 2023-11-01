@@ -24,11 +24,14 @@ public class Veiculo {
         this.placa = placa;
     }
 
-    public void estacionar(Vaga vaga){
-
+    public void estacionar(Vaga vaga, Veiculo carro){
+        // vaga.ocupada = true;
+        // vaga.veiculo = carro
     }
 
-    public double sair(){
+    public double sair(String placa){
+        // vaga.ocupada = false;
+        // vaga.veiculo = null;
         return 0.0;
     }
 

@@ -20,4 +20,7 @@ public class Vaga {
     public boolean disponivel(){
         return false;
     }
+
+    public void liberar() {
+    }
 }
