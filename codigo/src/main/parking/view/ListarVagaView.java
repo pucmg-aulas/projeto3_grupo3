@@ -55,10 +55,20 @@ public class ListarVagaView extends javax.swing.JFrame {
         // setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setVisible(false);
+            }
+        });
 
         btnEditar.setText("Editar");
 
         btnExcluir.setText("Excluir");
+        // btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+        //     }
+        // });
 
         tbVagas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -3,6 +3,7 @@ package parking.model;
 public class Vaga {
     private String id;
     private boolean disponivel;
+    private Veiculo veiculo;
 
     public Vaga(String id, boolean disponivel) {
         this.id = id;

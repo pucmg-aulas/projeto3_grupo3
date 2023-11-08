@@ -19,6 +19,7 @@ public class AddVeiculoView extends javax.swing.JFrame {
     public AddVeiculoView() {
         initComponents();
     }
+
     public JToggleButton getBtnCancelar() {
         return btnCancelar;
     }
@@ -35,19 +36,19 @@ public class AddVeiculoView extends javax.swing.JFrame {
         this.btnSalvar = btnSalvar;
     }
 
-    public JTextField getTxtVagaVeiculo() {
+    public JTextField getTextVagaVeiculo() {
         return txtVagaVeiculo;
     }
 
-    public void setTxtVagaVeiculo(JTextField txtVagaVeiculo) {
+    public void setTextVagaVeiculo(JTextField txtVagaVeiculo) {
         this.txtVagaVeiculo = txtVagaVeiculo;
     }
 
-    public JTextField getTxtPlacaVeiculo() {
+    public JTextField getTextPlacaVeiculo() {
         return txtPlacaVeiculo;
     }
 
-    public void setTxtPlacaVeiculo(JTextField txtPlacaVeiculo) {
+    public void setTextPlacaVeiculo(JTextField txtPlacaVeiculo) {
         this.txtPlacaVeiculo = txtPlacaVeiculo;
     }
     /**
@@ -59,27 +60,14 @@ public class AddVeiculoView extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        carroPlacaRotulo = new javax.swing.JLabel();
         txtPlacaVeiculo = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        numeroVagaRotulo = new javax.swing.JLabel();
         txtVagaVeiculo = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JToggleButton();
         btnCancelar = new javax.swing.JToggleButton();
 
         // setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Placa");
-
-        jLabel2.setText("Vaga");
-
-        btnSalvar.setText("Salvar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
-
-        btnCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -91,8 +79,8 @@ public class AddVeiculoView extends javax.swing.JFrame {
                     .addComponent(txtPlacaVeiculo)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                            .addComponent(carroPlacaRotulo)
+                            .addComponent(numeroVagaRotulo))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(txtVagaVeiculo)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -106,11 +94,11 @@ public class AddVeiculoView extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(carroPlacaRotulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPlacaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(numeroVagaRotulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtVagaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -177,8 +165,8 @@ public class AddVeiculoView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnCancelar;
     private javax.swing.JToggleButton btnSalvar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel carroPlacaRotulo;
+    private javax.swing.JLabel numeroVagaRotulo;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtPlacaVeiculo;
     private javax.swing.JTextField txtVagaVeiculo;

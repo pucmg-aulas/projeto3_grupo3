@@ -4,8 +4,10 @@ package parking;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-import parking.view.AddVeiculoView;
+// import parking.view.AddVeiculoController;
 import parking.view.ListarVagaView;
+import parking.controller.AddVeiculoController;
+// import parking.controller.ListarVagaController;
 
 public class Main extends javax.swing.JFrame {
 
@@ -37,8 +39,7 @@ public class Main extends javax.swing.JFrame {
         addVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addVeiculoActionPerformed(evt);
-                AddVeiculoView addVeiculoView = new AddVeiculoView();
-                addVeiculoView.setVisible(true);
+                AddVeiculoController addVeiculoController = new AddVeiculoController();
             }
         });
         jMenu1.add(addVeiculo);
