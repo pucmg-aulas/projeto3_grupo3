@@ -1,4 +1,4 @@
-package model;
+package parking.model;
 
 public class Vaga {
     private String id;

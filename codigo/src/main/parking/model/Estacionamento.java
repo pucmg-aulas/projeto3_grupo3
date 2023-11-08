@@ -1,4 +1,4 @@
-package model;
+package parking.model;
 
 public class Estacionamento {
     private String nome;
@@ -6,7 +6,6 @@ public class Estacionamento {
     private Vaga vagas;
     private int quantFileiras;
     private int vagasPorFileira;
-
 
     public Estacionamento(String nome, int quantFileiras, int vagasPorFileira) {
         this.nome = nome;

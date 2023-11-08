@@ -1,4 +1,4 @@
-package model;
+package parking.model;
 
 public class Veiculo {
     private String placa;
