@@ -1,4 +1,4 @@
-package main.parking.controller;
+package parking.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -55,7 +55,7 @@ public class ListarVagaController {
 
 
     public static void main(String[] args) {
-        // metodo para testar o controlador se precisar
+        // metodo para testar o controlador caso precise
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 ListarVagaView view = new ListarVagaView();
