@@ -3,14 +3,11 @@ package parking;
 import parking.controller.AddVeiculoController;
 import parking.controller.ListarVagaController;
 
-import parking.view.AddVeiculoView;
-import parking.view.ListarVagaView;
-
 public class Main extends javax.swing.JFrame {
 
     public Main() {
-        setTitle("Xulambs Parking");
         initComponents();
+        setTitle("Xulambs Parking");
     }
 
     private void initComponents() {
@@ -38,10 +35,10 @@ public class Main extends javax.swing.JFrame {
         addCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addClienteActionPerformed(evt);
-                ListarVagaView listarVagaView = new ListarVagaView();
-                listarVagaView.setVisible(true);
+                ListarVagaController ListarVagaController = new ListarVagaController();
             }
         });
+        
         jMenu1.add(addCliente);
 
         exitMenuBtn.setText("Sair");
