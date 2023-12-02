@@ -10,9 +10,8 @@ public class AddVeiculoController {
         
         telaView = new AddVeiculoView();
 
-        telaView.getTextPlacaVeiculo().setText("Placa"); // Passa a placa do carro
-        telaView.getTextVagaVeiculo().setText("Vaga"); // Passa o id da vaga
-
+        telaView.getTextPlacaVeiculo().setText("Placa");
+        telaView.getTextVagaVeiculo().setText("Vaga");
         telaView.getBtnSalvar().setText("Salvar");
         telaView.getBtnCancelar().setText("Cancelar");
 
