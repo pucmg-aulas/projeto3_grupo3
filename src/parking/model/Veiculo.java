@@ -1,8 +1,10 @@
 package parking.model;
 
+import java.util.List;
+
 public class Veiculo {
     private String placa;
-    private UsoDeVaga usos;
+    private List<UsoDeVaga> usos;
 
     public String getPlaca() {
         return placa;
@@ -12,11 +14,11 @@ public class Veiculo {
         this.placa = placa;
     }
 
-    public UsoDeVaga getUsos() {
+    public List<UsoDeVaga> getUsos() {
         return usos;
     }
 
-    public void setUsos(UsoDeVaga usos) {
+    public void setUsos(List<UsoDeVaga> usos) {
         this.usos = usos;
     }
 

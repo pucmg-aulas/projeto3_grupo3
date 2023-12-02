@@ -7,6 +7,7 @@ public class AddVeiculoController {
     private AddVeiculoView telaView;
 
     public AddVeiculoController() {
+        
         telaView = new AddVeiculoView();
 
         telaView.getTextPlacaVeiculo().setText("Placa"); // Passa a placa do carro
@@ -23,12 +24,7 @@ public class AddVeiculoController {
 
         telaView.getBtnSalvar().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-
                 adicionarVeiculo();
-                // get ../../resources/vagas.csv
-                // String caminhoArquivo = "../../resources/vagas.csv";
-                // try(Reader reader = new FileReader(caminhoArquivo));
-
             }
         });
 

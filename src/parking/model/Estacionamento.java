@@ -1,15 +1,16 @@
 package parking.model;
 
 public class Estacionamento {
-    private String nome;
-    private Cliente id;
-    private Vaga vagas;
-    private int quantFileiras;
-    private int vagasPorFileira;
 
-    public Estacionamento(String nome, int quantFileiras, int vagasPorFileira) {
+    public String nome;
+    public Cliente[] id;
+    public Vaga[] vagas;
+    public int fileiras;
+    public int vagasPorFileira;
+
+    public Estacionamento(String nome, int fileiras, int vagasPorFileira) {
         this.nome = nome;
-        this.quantFileiras = quantFileiras;
+        this.fileiras = fileiras;
         this.vagasPorFileira = vagasPorFileira;
     }
 
@@ -30,6 +31,7 @@ public class Estacionamento {
     }
 
     public double sair(String placa){
+        this.gerarVagas();
         return 0.0;
     }
 

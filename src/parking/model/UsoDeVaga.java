@@ -21,9 +21,8 @@ public class UsoDeVaga {
         Duration duracao = Duration.between(entrada, saida);
         int minutos = (int) duracao.toMinutes();
         valorPago = calcularValorPago(minutos);
-        vaga.liberar();
+        vaga.sair();
         return valorPago;
-        
     }
 
     private double calcularValorPago(int minutos) {
