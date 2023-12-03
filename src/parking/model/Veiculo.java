@@ -1,10 +1,11 @@
 package parking.model;
 
-import java.util.List;
+import java.io.Serializable;
 
-public class Veiculo {
+public class Veiculo implements Serializable {
+
     private String placa;
-    private List<UsoDeVaga> usos;
+    private String vaga;
 
     public String getPlaca() {
         return placa;
@@ -14,16 +15,17 @@ public class Veiculo {
         this.placa = placa;
     }
 
-    public List<UsoDeVaga> getUsos() {
-        return usos;
+    public String getVaga() {
+        return vaga;
     }
 
-    public void setUsos(List<UsoDeVaga> usos) {
-        this.usos = usos;
+    public void setUsos(String vaga) {
+        this.vaga = vaga;
     }
 
-    public Veiculo(String placa) {
+    public Veiculo(String placa, String vaga) {
         this.placa = placa;
+        this.vaga = vaga;
     }
 
     public void estacionar(Vaga vaga, Veiculo carro){
@@ -55,5 +57,10 @@ public class Veiculo {
 
     public double getArrecadado() {
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return placa + "%" + vaga;
     }
 }

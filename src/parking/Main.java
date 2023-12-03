@@ -21,39 +21,36 @@ public class Main extends JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        jMenuBar1.add(jMenu1);
         jMenu1.setText("File");
-
         addVeiculo.setText("Adicionar veículo");
+        exitMenuBtn.setText("Sair");
+        addCliente.setText("Gerenciar vagas");
+        jMenu1.add(addVeiculo);
+        jMenu1.add(addCliente);
+        jMenu1.add(exitMenuBtn);
+
+        setJMenuBar(jMenuBar1);
+
         addVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 abrirAddVeiculoView();
             }
         });
-        jMenu1.add(addVeiculo);
-
-        addCliente.setText("Gerenciar vagas");
         addCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 abrirListarVagaView();
             }
         });
-        
-        jMenu1.add(addCliente);
-
-        exitMenuBtn.setText("Sair");
         exitMenuBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 System.exit(0);
             }
         });
 
-        jMenu1.add(exitMenuBtn);
-        jMenuBar1.add(jMenu1);
-
-        setJMenuBar(jMenuBar1);
-
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+
         layout.setHorizontalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
@@ -109,13 +106,13 @@ public class Main extends JFrame {
 }
 
 // private void addVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVeiculoActionPerformed
-//     // TODO add your handling code here:
+//     // add your handling code here:
 // }//GEN-LAST:event_addVeiculoActionPerformed
 
 // private void exitMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuBtnActionPerformed
-//     this.dispose();// TODO add your handling code here:
+//     this.dispose();// add your handling code here:
 // }//GEN-LAST:event_exitMenuBtnActionPerformed
 
 // private void addClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClienteActionPerformed
-//     // TODO add your handling code here:
+//     // add your handling code here:
 // }//GEN-LAST:event_addClienteActionPerformed

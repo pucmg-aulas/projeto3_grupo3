@@ -42,15 +42,8 @@ public class ListarVagaView extends JFrame {
         btnVoltar.setText("Voltar");
 
         tbVagas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Cliente", "Id Cliente", "Vaga", "Placa"
-            }
+            new Object [][] {},
+            new String [] {"Cliente", "Id Cliente", "Vaga", "Placa"}
         ));
 
         jScrollPane1.setViewportView(tbVagas);
