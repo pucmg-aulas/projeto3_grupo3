@@ -5,9 +5,19 @@ import java.util.logging.Logger;
 
 public class AddVeiculoView extends JFrame {
 
+    private JToggleButton buttonCancelar = new JToggleButton();
+    private JToggleButton buttonSalvar = new JToggleButton();
+    private JLabel carroPlacaRotulo = new JLabel();
+    private JLabel numeroVagaRotulo = new JLabel();
+    private JPanel jPanel3 = new JPanel();
+    private JTextField textPlacaVeiculo = new JTextField();
+    private JTextField textVagaVeiculo = new JTextField();
+    private static Logger logger = Logger.getLogger(AddVeiculoView.class.getName());
+
     public AddVeiculoView() {
         initComponents();
         setTitle("Xulambs Parking - Adicionar veículo");
+        setLocationRelativeTo(null);
     }
 
     public JToggleButton getButtonCancelar() {
@@ -43,14 +53,6 @@ public class AddVeiculoView extends JFrame {
     }
 
     private void initComponents() {
-
-        jPanel3 = new JPanel();
-        carroPlacaRotulo = new JLabel();
-        textPlacaVeiculo = new JTextField();
-        numeroVagaRotulo = new JLabel();
-        textVagaVeiculo = new JTextField();
-        buttonSalvar = new JToggleButton();
-        buttonCancelar = new JToggleButton();
 
         carroPlacaRotulo.setText("Placa");
         numeroVagaRotulo.setText("Vaga");
@@ -106,7 +108,7 @@ public class AddVeiculoView extends JFrame {
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         );
-        
+
         pack();
     }
 
@@ -136,13 +138,4 @@ public class AddVeiculoView extends JFrame {
             }
         });
     }
-
-    private JToggleButton buttonCancelar;
-    private JToggleButton buttonSalvar;
-    private JLabel carroPlacaRotulo;
-    private JLabel numeroVagaRotulo;
-    private JPanel jPanel3;
-    private JTextField textPlacaVeiculo;
-    private JTextField textVagaVeiculo;
-    private static Logger logger = Logger.getLogger(AddVeiculoView.class.getName());
 }

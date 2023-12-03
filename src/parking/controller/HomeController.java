@@ -10,12 +10,22 @@ public class HomeController {
 
         telaView = new HomeView();
 
+        telaView.getMenuItemAddEstacionamento().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                abrirAddEstacionamentoView();
+            }
+        });
+        // telaView.getMenuItemAddVaga().addActionListener(new java.awt.event.ActionListener() {
+        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
+        //         abrirAddVagaView();
+        //     }
+        // });
         telaView.getMenuItemAddVeiculo().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 abrirAddVeiculoView();
             }
         });
-        telaView.getMenuItemAddCliente().addActionListener(new java.awt.event.ActionListener() {
+        telaView.getMenuItemGerenciarVagas().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 abrirListarVagaView();
             }
@@ -29,9 +39,17 @@ public class HomeController {
         telaView.setVisible(true);
     }
 
+    private AddEstacionamentoController abrirAddEstacionamentoView() {
+        return new AddEstacionamentoController();
+    }
+
+    // private AddVagaController abrirAddVagaView() {
+    //     return new AddVagaController();
+    // }
+
     private AddVeiculoController abrirAddVeiculoView() {
         return new AddVeiculoController();
-    }    
+    } 
 
     private ListarVagaController abrirListarVagaView() {
         return new ListarVagaController();

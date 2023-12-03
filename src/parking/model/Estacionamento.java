@@ -1,6 +1,7 @@
 package parking.model;
 
-public class Estacionamento {
+import java.io.Serializable;
+public class Estacionamento implements Serializable {
 
     public String nome;
     public Cliente[] id;

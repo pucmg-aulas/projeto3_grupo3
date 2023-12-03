@@ -1,21 +1,41 @@
 package parking.view;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.logging.Logger;
 
 public class HomeView extends JFrame {
 
+    private JMenuBar jMenuBar = new JMenuBar();
+    private JMenu menuAdicionar = new JMenu();
+    private JMenu menuExibir = new JMenu();
+    private JMenuItem menuItemAddEstacionamento = new JMenuItem();
+    private JMenuItem menuItemAddVaga = new JMenuItem();
+    private JMenuItem menuItemAddVeiculo = new JMenuItem();
+    private JMenuItem menuItemGerenciarVagas = new JMenuItem();
+    private JMenuItem buttonExitMenu = new JMenuItem();
+    private static Logger logger = Logger.getLogger(HomeView.class.getName());
+
     public HomeView() {
         initComponents();
         setTitle("Xulambs Parking");
+        setLocationRelativeTo(null);
+    }
+
+    public JMenuItem getMenuItemAddEstacionamento() {
+        return menuItemAddEstacionamento;
+    }
+
+    public JMenuItem getMenuItemAddVaga() {
+        return menuItemAddVaga;
     }
 
     public JMenuItem getMenuItemAddVeiculo() {
         return menuItemAddVeiculo;
     }
 
-    public JMenuItem getMenuItemAddCliente() {
-        return menuItemAddCliente;
+    public JMenuItem getMenuItemGerenciarVagas() {
+        return menuItemGerenciarVagas;
     }
 
     public JMenuItem getButtonExitMenu() {
@@ -24,36 +44,36 @@ public class HomeView extends JFrame {
 
     private void initComponents() {
 
-        jMenuBar = new JMenuBar();
-        menuFile = new JMenu();
-        menuItemAddVeiculo = new JMenuItem();
-        menuItemAddCliente = new JMenuItem();
-        buttonExitMenu = new JMenuItem();
-
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        jMenuBar.add(menuFile);
-        menuFile.setText("File");
-        menuItemAddVeiculo.setText("Adicionar veículo");
+        menuAdicionar.setText("Adicionar");
+        menuAdicionar.add(menuItemAddEstacionamento);
+        menuAdicionar.add(menuItemAddVaga);
+        menuAdicionar.add(menuItemAddVeiculo);
+
+        menuExibir.setText("Exibir");
+        menuExibir.add(menuItemGerenciarVagas);
+
+        menuItemAddEstacionamento.setText("Estacionamento");
+        menuItemAddVeiculo.setText("Veículo");
+        menuItemAddVaga.setText("Vaga");
+
+        menuItemGerenciarVagas.setText("Vagas");
+
         buttonExitMenu.setText("Sair");
-        menuItemAddCliente.setText("Gerenciar vagas");
-        menuFile.add(menuItemAddVeiculo);
-        menuFile.add(menuItemAddCliente);
-        menuFile.add(buttonExitMenu);
+
+        buttonExitMenu.setHorizontalAlignment(SwingConstants.RIGHT);
+
+        jMenuBar.add(menuAdicionar);
+        jMenuBar.add(menuExibir);
+        jMenuBar.add(buttonExitMenu);
 
         setJMenuBar(jMenuBar);
 
-        GroupLayout layout = new GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        setLayout(new FlowLayout());
+        add(new JLabel("Bem vindo ao Xulambs Parking!"));
 
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
-        );
+        setPreferredSize(new Dimension(400, 300));
 
         pack();
     }
@@ -83,23 +103,4 @@ public class HomeView extends JFrame {
             }
         });
     }
-
-    private JMenu menuFile;
-    private JMenuBar jMenuBar;
-    private JMenuItem menuItemAddVeiculo;
-    private JMenuItem menuItemAddCliente;
-    private JMenuItem buttonExitMenu;
-    private static Logger logger = Logger.getLogger(HomeView.class.getName());
 }
-
-// private void addVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVeiculoActionPerformed
-//     // add your handling code here:
-// }//GEN-LAST:event_addVeiculoActionPerformed
-
-// private void buttonExitMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitMenuActionPerformed
-//     this.dispose();// add your handling code here:
-// }//GEN-LAST:event_buttonExitMenuActionPerformed
-
-// private void addClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClienteActionPerformed
-//     // add your handling code here:
-// }//GEN-LAST:event_addClienteActionPerformed

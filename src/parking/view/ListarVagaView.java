@@ -5,16 +5,25 @@ import java.util.logging.Logger;
 
 public class ListarVagaView extends JFrame {
 
+    private JButton buttonExcluir = new JButton();
+    private JButton buttonEditar  = new JButton();
+    private JButton buttonVoltar  = new JButton();
+    private JScrollPane jScrollPane = new JScrollPane();
+    private JTable tableVagas = new JTable();
+    private static Logger logger = Logger.getLogger(ListarVagaView.class.getName());
+
     public ListarVagaView() {
         initComponents();
         setTitle("Xulambs Parking - Gerenciar vagas");
-    }
-    public JButton getButtonEditar() {
-        return buttonEditar;
+        setLocationRelativeTo(null);
     }
 
     public JButton getButtonExcluir() {
         return buttonExcluir;
+    }
+
+    public JButton getButtonEditar() {
+        return buttonEditar;
     }
 
     public JButton getButtonVoltar() {
@@ -31,22 +40,11 @@ public class ListarVagaView extends JFrame {
 
     private void initComponents() {
 
-        buttonVoltar = new JButton();
-        buttonEditar = new JButton();
-        buttonExcluir = new JButton();
-        jScrollPane1 = new JScrollPane();
-        tableVagas = new JTable();
-
         buttonEditar.setText("Editar");
         buttonExcluir.setText("Excluir");
         buttonVoltar.setText("Voltar");
 
-        tableVagas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {},
-            new String [] {"Cliente", "Id Cliente", "Vaga", "Placa"}
-        ));
-
-        jScrollPane1.setViewportView(tableVagas);
+        jScrollPane.setViewportView(tableVagas);
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -55,7 +53,7 @@ public class ListarVagaView extends JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                    .addComponent(jScrollPane, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                     .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(buttonExcluir)
@@ -69,7 +67,7 @@ public class ListarVagaView extends JFrame {
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonExcluir)
@@ -77,6 +75,7 @@ public class ListarVagaView extends JFrame {
                     .addComponent(buttonVoltar))
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
         pack();
     }
 
@@ -105,11 +104,4 @@ public class ListarVagaView extends JFrame {
             }
         });
     }
-
-    private JButton buttonEditar;
-    private JButton buttonExcluir;
-    private JButton buttonVoltar;
-    private JScrollPane jScrollPane1;
-    private JTable tableVagas;
-    private static Logger logger = Logger.getLogger(ListarVagaView.class.getName());
 }
