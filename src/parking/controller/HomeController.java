@@ -1,14 +1,14 @@
 package parking.controller;
 
-import parking.view.MainView;
+import parking.view.HomeView;
 
-public class MainController {
+public class HomeController {
 
-    private final MainView telaView;
+    private final HomeView telaView;
 
-    public MainController() {
+    public HomeController() {
 
-        telaView = new MainView();
+        telaView = new HomeView();
 
         telaView.getMenuItemAddVeiculo().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -37,15 +37,3 @@ public class MainController {
         return new ListarVagaController();
     }
 }
-
-// private void addVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVeiculoActionPerformed
-//     // add your handling code here:
-// }//GEN-LAST:event_addVeiculoActionPerformed
-
-// private void exitMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuBtnActionPerformed
-//     this.dispose();// add your handling code here:
-// }//GEN-LAST:event_exitMenuBtnActionPerformed
-
-// private void addClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClienteActionPerformed
-//     // add your handling code here:
-// }//GEN-LAST:event_addClienteActionPerformed

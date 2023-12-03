@@ -1,9 +1,7 @@
 package parking.controller;
 
 import parking.view.AddVeiculoView;
-
 import javax.swing.JOptionPane;
-
 import parking.archive.VeiculoArchive;
 import parking.model.Veiculo;
 

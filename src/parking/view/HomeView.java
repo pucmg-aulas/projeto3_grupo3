@@ -3,11 +3,11 @@ package parking.view;
 import javax.swing.*;
 import java.util.logging.Logger;
 
-public class MainView extends JFrame {
+public class HomeView extends JFrame {
 
-    public MainView() {
+    public HomeView() {
         initComponents();
-        setTitle("Xulambs Parking - main");
+        setTitle("Xulambs Parking");
     }
 
     public JMenuItem getMenuItemAddVeiculo() {
@@ -24,24 +24,24 @@ public class MainView extends JFrame {
 
     private void initComponents() {
 
-        jMenuBar1 = new JMenuBar();
-        jMenu1 = new JMenu();
+        jMenuBar = new JMenuBar();
+        menuFile = new JMenu();
         menuItemAddVeiculo = new JMenuItem();
         menuItemAddCliente = new JMenuItem();
         buttonExitMenu = new JMenuItem();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        jMenuBar1.add(jMenu1);
-        jMenu1.setText("File");
+        jMenuBar.add(menuFile);
+        menuFile.setText("File");
         menuItemAddVeiculo.setText("Adicionar veículo");
         buttonExitMenu.setText("Sair");
         menuItemAddCliente.setText("Gerenciar vagas");
-        jMenu1.add(menuItemAddVeiculo);
-        jMenu1.add(menuItemAddCliente);
-        jMenu1.add(buttonExitMenu);
+        menuFile.add(menuItemAddVeiculo);
+        menuFile.add(menuItemAddCliente);
+        menuFile.add(buttonExitMenu);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBar);
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,17 +79,17 @@ public class MainView extends JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new MainView().setVisible(true);
+                new HomeView().setVisible(true);
             }
         });
     }
 
-    private JMenu jMenu1;
-    private JMenuBar jMenuBar1;
+    private JMenu menuFile;
+    private JMenuBar jMenuBar;
     private JMenuItem menuItemAddVeiculo;
     private JMenuItem menuItemAddCliente;
     private JMenuItem buttonExitMenu;
-    private static Logger logger = Logger.getLogger(MainView.class.getName());
+    private static Logger logger = Logger.getLogger(HomeView.class.getName());
 }
 
 // private void addVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVeiculoActionPerformed
