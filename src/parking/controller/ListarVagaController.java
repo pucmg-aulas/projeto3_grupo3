@@ -10,9 +10,11 @@ public class ListarVagaController {
 
         telaView = new ListarVagaView();
 
-        telaView.getBtnEditar().setText("Editar");
-        telaView.getBtnExcluir().setText("Excluir");
-        telaView.getBtnVoltar().setText("Voltar");
+        telaView.getBtnVoltar().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaView.setVisible(false);
+            }
+        });
 
         telaView.setVisible(true);
     }

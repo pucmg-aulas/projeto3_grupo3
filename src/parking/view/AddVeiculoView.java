@@ -7,6 +7,7 @@ public class AddVeiculoView extends JFrame {
 
     public AddVeiculoView() {
         initComponents();
+        setTitle("Xulambs Parking - Adicionar veículo");
     }
 
     public JToggleButton getBtnCancelar() {
@@ -50,6 +51,11 @@ public class AddVeiculoView extends JFrame {
         txtVagaVeiculo = new JTextField();
         btnSalvar = new JToggleButton();
         btnCancelar = new JToggleButton();
+
+        carroPlacaRotulo.setText("Placa");
+        numeroVagaRotulo.setText("Vaga");
+        btnSalvar.setText("Salvar");
+        btnCancelar.setText("Cancelar");
 
         GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

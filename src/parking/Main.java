@@ -23,20 +23,18 @@ public class Main extends JFrame {
 
         jMenu1.setText("File");
 
-        addVeiculo.setText("Adicionar Veiculo");
+        addVeiculo.setText("Adicionar veículo");
         addVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addVeiculoActionPerformed(evt);
-                AddVeiculoController addVeiculoController = new AddVeiculoController();
+                abrirAddVeiculoView();
             }
         });
         jMenu1.add(addVeiculo);
 
-        addCliente.setText("Adicionar Cliente");
+        addCliente.setText("Gerenciar vagas");
         addCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addClienteActionPerformed(evt);
-                ListarVagaController ListarVagaController = new ListarVagaController();
+                abrirListarVagaView();
             }
         });
         
@@ -45,10 +43,10 @@ public class Main extends JFrame {
         exitMenuBtn.setText("Sair");
         exitMenuBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuBtnActionPerformed(evt);
+                System.exit(0);
             }
         });
-        
+
         jMenu1.add(exitMenuBtn);
         jMenuBar1.add(jMenu1);
 
@@ -68,18 +66,6 @@ public class Main extends JFrame {
         pack();
     }
 
-    private void addVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVeiculoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addVeiculoActionPerformed
-
-    private void exitMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuBtnActionPerformed
-        this.dispose();// TODO add your handling code here:
-    }//GEN-LAST:event_exitMenuBtnActionPerformed
-
-    private void addClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addClienteActionPerformed
-    
     public static void main(String args[]) {
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -112,4 +98,24 @@ public class Main extends JFrame {
     private JMenu jMenu1;
     private JMenuBar jMenuBar1;
     private static Logger logger = Logger.getLogger(Main.class.getName());
+
+    private AddVeiculoController abrirAddVeiculoView() {
+        return new AddVeiculoController();
+    }    
+
+    private ListarVagaController abrirListarVagaView() {
+        return new ListarVagaController();
+    }
 }
+
+// private void addVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVeiculoActionPerformed
+//     // TODO add your handling code here:
+// }//GEN-LAST:event_addVeiculoActionPerformed
+
+// private void exitMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuBtnActionPerformed
+//     this.dispose();// TODO add your handling code here:
+// }//GEN-LAST:event_exitMenuBtnActionPerformed
+
+// private void addClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClienteActionPerformed
+//     // TODO add your handling code here:
+// }//GEN-LAST:event_addClienteActionPerformed

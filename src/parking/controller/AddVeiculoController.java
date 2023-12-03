@@ -10,11 +10,6 @@ public class AddVeiculoController {
         
         telaView = new AddVeiculoView();
 
-        telaView.getTextPlacaVeiculo().setText("Placa");
-        telaView.getTextVagaVeiculo().setText("Vaga");
-        telaView.getBtnSalvar().setText("Salvar");
-        telaView.getBtnCancelar().setText("Cancelar");
-
         telaView.getBtnCancelar().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telaView.setVisible(false);

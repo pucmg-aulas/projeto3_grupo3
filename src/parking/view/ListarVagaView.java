@@ -7,6 +7,7 @@ public class ListarVagaView extends JFrame {
 
     public ListarVagaView() {
         initComponents();
+        setTitle("Xulambs Parking - Gerenciar vagas");
     }
     public JButton getBtnEditar() {
         return btnEditar;
@@ -35,6 +36,10 @@ public class ListarVagaView extends JFrame {
         btnExcluir = new JButton();
         jScrollPane1 = new JScrollPane();
         tbVagas = new JTable();
+
+        btnEditar.setText("Editar");
+        btnExcluir.setText("Excluir");
+        btnVoltar.setText("Voltar");
 
         tbVagas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
