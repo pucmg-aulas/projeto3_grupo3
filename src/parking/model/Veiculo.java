@@ -48,4 +48,12 @@ public class Veiculo {
     public int totalDeUsos(){
         return 0;
     }
+
+    public int getTotalDeUsos() {
+        return 0;
+    }
+
+    public double getArrecadado() {
+        return 0;
+    }
 }

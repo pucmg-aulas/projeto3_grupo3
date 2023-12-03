@@ -1,5 +1,6 @@
 package parking.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
@@ -12,11 +13,13 @@ public class Cliente {
         this.id = id;
     }
 
-    public void addVeiculo(Veiculo veiculo){
-        this.veiculos.add(veiculo);
+    public void addVeiculo(Veiculo veiculo) {
+        List<Veiculo> newVeiculos = new ArrayList<>(veiculos);
+        newVeiculos.add(veiculo);
+        veiculos = newVeiculos;
     }
 
-    public Veiculo possuiVeiculo(String placa){
+    public Veiculo possuiVeiculo(String placa) {
         for (Veiculo veiculo : veiculos) {
             if (veiculo.getPlaca().equals(placa)) {
                 return veiculo; // Veículo encontrado
@@ -25,19 +28,27 @@ public class Cliente {
         return null;
     }
 
-    public int totalDeUsos(){
-        return 0;
+    public int totalDeUsos() {
+        int total = 0;
+        for (Veiculo veiculo : veiculos) {
+            total += veiculo.getTotalDeUsos();
+        }
+        return total;
     }
 
-    public double arrecadadoPorVeiculo(String placa){
+    public double arrecadadoPorVeiculo(String placa) {
+        Veiculo veiculo = possuiVeiculo(placa);
+        if (veiculo == null) {
+            return 0.0;
+        }
+        return veiculo.getArrecadado();
+    }
+
+    public double arrecadadoTotal() {
         return 0.0;
     }
 
-    public double arrecadadoTotal(){
-        return 0.0;
-    }
-
-    public double arrecadadoNoMes(int mes){
+    public double arrecadadoNoMes(int mes) {
         return 0.0;
     }
 
