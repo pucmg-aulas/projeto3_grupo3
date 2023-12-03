@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class VeiculoArchive extends MainArchive implements Serializable {
+public class VeiculoArchive extends AbstractArchive implements Serializable {
 
     private List<Veiculo> veiculos;
     private static VeiculoArchive veiculoArchive;
-    private final String filePath = "./src/parking/data/Veiculos.dat";
+    private final String filePath = "./src/parking/data/Veiculo.dat";
 
     private VeiculoArchive() {
         veiculos = new ArrayList<>();
