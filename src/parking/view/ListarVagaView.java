@@ -9,44 +9,44 @@ public class ListarVagaView extends JFrame {
         initComponents();
         setTitle("Xulambs Parking - Gerenciar vagas");
     }
-    public JButton getBtnEditar() {
-        return btnEditar;
+    public JButton getButtonEditar() {
+        return buttonEditar;
     }
 
-    public JButton getBtnExcluir() {
-        return btnExcluir;
+    public JButton getButtonExcluir() {
+        return buttonExcluir;
     }
 
-    public JButton getBtnVoltar() {
-        return btnVoltar;
+    public JButton getButtonVoltar() {
+        return buttonVoltar;
     }
 
-    public JTable getTbVagas() {
-        return tbVagas;
+    public JTable getTableVagas() {
+        return tableVagas;
     }
 
-    public void setTbVagas(JTable tbVagas) {
-        this.tbVagas = tbVagas;
+    public void setTableVagas(JTable tableVagas) {
+        this.tableVagas = tableVagas;
     }
 
     private void initComponents() {
 
-        btnVoltar = new JButton();
-        btnEditar = new JButton();
-        btnExcluir = new JButton();
+        buttonVoltar = new JButton();
+        buttonEditar = new JButton();
+        buttonExcluir = new JButton();
         jScrollPane1 = new JScrollPane();
-        tbVagas = new JTable();
+        tableVagas = new JTable();
 
-        btnEditar.setText("Editar");
-        btnExcluir.setText("Excluir");
-        btnVoltar.setText("Voltar");
+        buttonEditar.setText("Editar");
+        buttonExcluir.setText("Excluir");
+        buttonVoltar.setText("Voltar");
 
-        tbVagas.setModel(new javax.swing.table.DefaultTableModel(
+        tableVagas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {},
             new String [] {"Cliente", "Id Cliente", "Vaga", "Placa"}
         ));
 
-        jScrollPane1.setViewportView(tbVagas);
+        jScrollPane1.setViewportView(tableVagas);
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,11 +58,11 @@ public class ListarVagaView extends JFrame {
                     .addComponent(jScrollPane1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                     .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnExcluir)
+                        .addComponent(buttonExcluir)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditar)
+                        .addComponent(buttonEditar)
                         .addGap(4, 4, 4)
-                        .addComponent(btnVoltar)))
+                        .addComponent(buttonVoltar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -72,9 +72,9 @@ public class ListarVagaView extends JFrame {
                 .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExcluir)
-                    .addComponent(btnEditar)
-                    .addComponent(btnVoltar))
+                    .addComponent(buttonExcluir)
+                    .addComponent(buttonEditar)
+                    .addComponent(buttonVoltar))
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pack();
@@ -106,10 +106,10 @@ public class ListarVagaView extends JFrame {
         });
     }
 
-    private JButton btnEditar;
-    private JButton btnExcluir;
-    private JButton btnVoltar;
+    private JButton buttonEditar;
+    private JButton buttonExcluir;
+    private JButton buttonVoltar;
     private JScrollPane jScrollPane1;
-    private JTable tbVagas;
+    private JTable tableVagas;
     private static Logger logger = Logger.getLogger(ListarVagaView.class.getName());
 }

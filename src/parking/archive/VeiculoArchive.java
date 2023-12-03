@@ -10,9 +10,7 @@ import java.util.List;
 public class VeiculoArchive extends MainArchive implements Serializable {
 
     private List<Veiculo> veiculos;
-
     private static VeiculoArchive veiculoArchive;
-
     private final String filePath = "./src/parking/data/Veiculos.dat";
 
     private VeiculoArchive() {
@@ -42,6 +40,11 @@ public class VeiculoArchive extends MainArchive implements Serializable {
 
     public void removeVeiculo(Veiculo veiculo) {
         veiculos.remove(veiculo);
+        fileWrite(filePath, veiculos);
+    }
+
+    public void editarVeiculo(Veiculo veiculoNovo, Veiculo veiculoAntigo) {
+        veiculos.set(veiculos.indexOf(veiculoAntigo), veiculoNovo);
         fileWrite(filePath, veiculos);
     }
 

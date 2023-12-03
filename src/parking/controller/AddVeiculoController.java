@@ -17,13 +17,13 @@ public class AddVeiculoController {
         telaView = new AddVeiculoView();
         veiculoArchive = VeiculoArchive.getInstance();
 
-        telaView.getBtnSalvar().addActionListener(new java.awt.event.ActionListener() {
+        telaView.getButtonSalvar().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adicionarVeiculo();
             }
         });
 
-        telaView.getBtnCancelar().addActionListener(new java.awt.event.ActionListener() {
+        telaView.getButtonCancelar().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fecharTelaView();
             }

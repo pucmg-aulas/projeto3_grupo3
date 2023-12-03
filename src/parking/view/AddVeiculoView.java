@@ -10,52 +10,52 @@ public class AddVeiculoView extends JFrame {
         setTitle("Xulambs Parking - Adicionar veículo");
     }
 
-    public JToggleButton getBtnCancelar() {
-        return btnCancelar;
+    public JToggleButton getButtonCancelar() {
+        return buttonCancelar;
     }
 
-    public void setBtnCancelar(JToggleButton btnCancelar) {
-        this.btnCancelar = btnCancelar;
+    public void setButtonCancelar(JToggleButton buttonCancelar) {
+        this.buttonCancelar = buttonCancelar;
     }
 
-    public JToggleButton getBtnSalvar() {
-        return btnSalvar;
+    public JToggleButton getButtonSalvar() {
+        return buttonSalvar;
     }
 
-    public void setBtnSalvar(JToggleButton btnSalvar) {
-        this.btnSalvar = btnSalvar;
+    public void setButtonSalvar(JToggleButton buttonSalvar) {
+        this.buttonSalvar = buttonSalvar;
     }
 
     public JTextField getTextVagaVeiculo() {
-        return txtVagaVeiculo;
+        return textVagaVeiculo;
     }
 
-    public void setTextVagaVeiculo(JTextField txtVagaVeiculo) {
-        this.txtVagaVeiculo = txtVagaVeiculo;
+    public void setTextVagaVeiculo(JTextField textVagaVeiculo) {
+        this.textVagaVeiculo = textVagaVeiculo;
     }
 
     public JTextField getTextPlacaVeiculo() {
-        return txtPlacaVeiculo;
+        return textPlacaVeiculo;
     }
 
-    public void setTextPlacaVeiculo(JTextField txtPlacaVeiculo) {
-        this.txtPlacaVeiculo = txtPlacaVeiculo;
+    public void setTextPlacaVeiculo(JTextField textPlacaVeiculo) {
+        this.textPlacaVeiculo = textPlacaVeiculo;
     }
 
     private void initComponents() {
 
         jPanel3 = new JPanel();
         carroPlacaRotulo = new JLabel();
-        txtPlacaVeiculo = new JTextField();
+        textPlacaVeiculo = new JTextField();
         numeroVagaRotulo = new JLabel();
-        txtVagaVeiculo = new JTextField();
-        btnSalvar = new JToggleButton();
-        btnCancelar = new JToggleButton();
+        textVagaVeiculo = new JTextField();
+        buttonSalvar = new JToggleButton();
+        buttonCancelar = new JToggleButton();
 
         carroPlacaRotulo.setText("Placa");
         numeroVagaRotulo.setText("Vaga");
-        btnSalvar.setText("Salvar");
-        btnCancelar.setText("Cancelar");
+        buttonSalvar.setText("Salvar");
+        buttonCancelar.setText("Cancelar");
 
         GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -64,18 +64,18 @@ public class AddVeiculoView extends JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPlacaVeiculo)
+                    .addComponent(textPlacaVeiculo)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(carroPlacaRotulo)
                             .addComponent(numeroVagaRotulo))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtVagaVeiculo)
+                    .addComponent(textVagaVeiculo)
                     .addGroup(GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 112, Short.MAX_VALUE)
-                        .addComponent(btnCancelar)
+                        .addComponent(buttonCancelar)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSalvar)))
+                        .addComponent(buttonSalvar)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -84,15 +84,15 @@ public class AddVeiculoView extends JFrame {
                 .addContainerGap()
                 .addComponent(carroPlacaRotulo)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPlacaVeiculo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addComponent(textPlacaVeiculo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(numeroVagaRotulo)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtVagaVeiculo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addComponent(textVagaVeiculo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvar)
-                    .addComponent(btnCancelar))
+                    .addComponent(buttonSalvar)
+                    .addComponent(buttonCancelar))
                 .addContainerGap())
         );
 
@@ -137,12 +137,12 @@ public class AddVeiculoView extends JFrame {
         });
     }
 
-    private JToggleButton btnCancelar;
-    private JToggleButton btnSalvar;
+    private JToggleButton buttonCancelar;
+    private JToggleButton buttonSalvar;
     private JLabel carroPlacaRotulo;
     private JLabel numeroVagaRotulo;
     private JPanel jPanel3;
-    private JTextField txtPlacaVeiculo;
-    private JTextField txtVagaVeiculo;
+    private JTextField textPlacaVeiculo;
+    private JTextField textVagaVeiculo;
     private static Logger logger = Logger.getLogger(AddVeiculoView.class.getName());
 }
