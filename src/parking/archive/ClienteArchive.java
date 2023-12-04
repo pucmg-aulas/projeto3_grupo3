@@ -34,8 +34,8 @@ public class ClienteArchive extends AbstractArchive implements Serializable {
     }
 
     public void addCliente(Cliente cliente) {
-        veiculos.add(veiculo);
-        fileWrite(filePath, veiculos);
+        clientes.add(cliente);
+        fileWrite(filePath, clientes);
     }
 
     public void removeCliente(Cliente cliente) {
