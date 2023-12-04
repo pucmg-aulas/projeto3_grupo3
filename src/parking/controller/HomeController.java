@@ -25,6 +25,11 @@ public class HomeController {
                 abrirAddVeiculoView();
             }
         });
+        telaView.getMenuItemAddCliente().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                abrirAbrirClienteView();
+            }
+        });
         telaView.getMenuItemGerenciarVagas().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 abrirListarVagaView();
@@ -37,6 +42,10 @@ public class HomeController {
         });
 
         telaView.setVisible(true);
+    }
+
+    private AddClienteController abrirAbrirClienteView() {
+        return new AddClienteController();
     }
 
     private AddEstacionamentoController abrirAddEstacionamentoView() {
