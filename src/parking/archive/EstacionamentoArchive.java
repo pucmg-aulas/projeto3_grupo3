@@ -5,11 +5,10 @@ import parking.model.Estacionamento;
 import java.util.List;
 
 public class EstacionamentoArchive extends AbstractArchive {
- 
-    
+
     private static EstacionamentoArchive estacionamentoArchive;
     private List<Estacionamento> estacionamentos;
-    
+
     private final String filePath = "./src/parking/data/Estacionamento.dat";
 
     private EstacionamentoArchive() {
@@ -21,7 +20,7 @@ public class EstacionamentoArchive extends AbstractArchive {
             estacionamentoArchive = new EstacionamentoArchive();
         }
         return estacionamentoArchive;
-    } 
+    }
 
     public List<Estacionamento> getEstacionamentos() {
         return estacionamentos;

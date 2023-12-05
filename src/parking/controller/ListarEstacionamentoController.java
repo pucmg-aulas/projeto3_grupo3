@@ -22,7 +22,7 @@ public class ListarEstacionamentoController {
         if (ListarEstacionamentoController == null) {
             ListarEstacionamentoController = new ListarEstacionamentoController();
         }
-        
+
         return ListarEstacionamentoController;
     }
 
@@ -57,19 +57,19 @@ public class ListarEstacionamentoController {
     }
 
     private void carregarTabela() {
-        Object colunas[] = {"Nome", "Vagas"};
+        Object colunas[] = { "Nome", "Vagas" };
         DefaultTableModel tm = new DefaultTableModel(colunas, 0);
         tm.setNumRows(0);
 
         Iterator<Estacionamento> it = estacionamentoArchive.getEstacionamentos().iterator();
         while (it.hasNext()) {
             Estacionamento estacionamento = it.next();
-            tm.addRow(new Object[]{estacionamento.getNome(), estacionamento.getVagas().size()});
+            tm.addRow(new Object[] { estacionamento.getNome(), estacionamento.getVagas().size() });
         }
         this.telaView.getTableEstacionamentos().setModel(tm);
     }
 
-    private void excluirEstacionamento () {
+    private void excluirEstacionamento() {
 
         int linha = telaView.getTableEstacionamentos().getSelectedRow();
 
@@ -81,14 +81,15 @@ public class ListarEstacionamentoController {
         String nome = (String) telaView.getTableEstacionamentos().getValueAt(linha, 0);
         Estacionamento estacionamento = estacionamentoArchive.buscarEstacionamentoPorNome(nome);
 
-        int op = JOptionPane.showConfirmDialog(telaView, "Deseja excluir estacionamento " + estacionamento.getNome() + "?");
+        int op = JOptionPane.showConfirmDialog(telaView,
+                "Deseja excluir estacionamento " + estacionamento.getNome() + "?");
 
         if (estacionamento != null && op == JOptionPane.YES_OPTION) {
             estacionamentoArchive.removeEstacionamento(estacionamento);
             JOptionPane.showMessageDialog(telaView, nome + " Excluído com Sucesso!");
             carregarTabela();
         } else {
-            if (op == JOptionPane.NO_OPTION || op == JOptionPane.CANCEL_OPTION) 
+            if (op == JOptionPane.NO_OPTION || op == JOptionPane.CANCEL_OPTION)
                 JOptionPane.showMessageDialog(null, "Operação cancelada");
             else
                 JOptionPane.showMessageDialog(null, "Estacionamento não encontrado");

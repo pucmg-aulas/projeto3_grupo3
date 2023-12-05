@@ -3,6 +3,7 @@ package parking.model;
 import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class UsoDeVaga implements Serializable {
     static final double FRACAO_USO = 0.25;
@@ -12,6 +13,7 @@ public class UsoDeVaga implements Serializable {
     private LocalDateTime entrada;
     private LocalDateTime saida;
     private double valorPago;
+    private List<UsoDeVaga> usoDeVagas; 
 
     public UsoDeVaga(Vaga vaga) {
         this.vaga = vaga;
@@ -41,7 +43,7 @@ public class UsoDeVaga implements Serializable {
         return valorPago;
     }
 
-    public double valorPago(){
+    public double valorPago() {
         double total = 0.0;
         if (entrada != null && saida != null) {
             Duration duracao = Duration.between(entrada, saida);
@@ -50,4 +52,30 @@ public class UsoDeVaga implements Serializable {
         }
         return total;
     }
+
+
+public double tempoDeUso() {
+    double totalDeTempo = 0.0;
+    if (entrada != null && saida != null) {
+        Duration duracao = Duration.between(entrada, saida);
+        totalDeTempo = duracao.toMinutes();
+    }
+    return totalDeTempo;
+} 
+
+
+
+
+public double valorPagoMes(int mes) {
+    double total = 0.0;
+    for (UsoDeVaga usoDeVaga : usoDeVagas) {
+        if (usoDeVaga.entrada.getMonthValue() == mes || usoDeVaga.saida.getMonthValue() == mes) {
+            total += usoDeVaga.valorPago();
+        }
+    }
+    return total;
+} 
+
 }
+    
+

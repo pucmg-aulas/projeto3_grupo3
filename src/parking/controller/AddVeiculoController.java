@@ -2,6 +2,8 @@ package parking.controller;
 
 import parking.archive.ClienteArchive;
 import parking.model.Cliente;
+import parking.model.Estacionamento;
+import parking.model.Vaga;
 import parking.view.AddVeiculoView;
 
 import javax.swing.*;
@@ -19,6 +21,7 @@ public class AddVeiculoController {
     private AddVeiculoView telaView;
     private VeiculoArchive veiculoArchive;
     private ClienteArchive clienteArchive;
+    private HomeController homeController;
 
     public static AddVeiculoController getInstance() {
         if (addVeiculoController == null) {
@@ -38,10 +41,10 @@ public class AddVeiculoController {
                 .map(cliente -> "%s: \"%s\"".formatted(cliente.getId(), cliente.getNome()))
                 .toList();
 
-        for(String nome : nomesClientes){
+        for (String nome : nomesClientes) {
             telaView.getClienteComboBox().addItem(nome);
         }
-        
+
         telaView.getButtonSalvar().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adicionarVeiculo();
@@ -53,29 +56,34 @@ public class AddVeiculoController {
                 fecharTelaView();
             }
         });
-        
+
     }
 
     private void adicionarVeiculo() {
 
         String veiculoPlaca = this.telaView.getTextPlacaVeiculo().getText();
-        String numeroVaga = this.telaView.getTextVagaVeiculo().getText();
+        String veiculoVaga = this.telaView.getTextVagaVeiculo().getText();
 
-        Veiculo novoVeiculo = new Veiculo(veiculoPlaca, numeroVaga);
+        if (veiculoPlaca.length() < 7) {
+            JOptionPane.showMessageDialog(this.telaView, "Placa do veiculo deve ter pelo menos 7 caracteres!");
+            return;
+        }
 
-        String clienteId = Objects.requireNonNull(this.telaView.getClienteComboBox().getSelectedItem()).toString().split(":", 1)[0];
+        if (veiculoArchive.buscarVeiculoPorPlaca(veiculoPlaca) != null) {
+            JOptionPane.showMessageDialog(this.telaView, "Placa do veiculo já existe!");
+            return;
+        }
 
-        ClienteArchive clienteArchive = ClienteArchive.getInstance();
-        Cliente clienteAntigo = clienteArchive.getClientes().stream().filter(clienteElemento -> clienteElemento.getId().equals(clienteId)).findFirst().orElse(null);
+        Veiculo novoVeiculo = new Veiculo(veiculoPlaca, veiculoVaga);
+        Veiculo veiculoAntigo = veiculoArchive.buscarVeiculoPorPlaca(veiculoPlaca);
+        veiculoArchive.editarVeiculo(novoVeiculo, veiculoAntigo);
 
         veiculoArchive.addVeiculo(novoVeiculo);
-        if(clienteAntigo != null){
-            Cliente clienteNovo = new Cliente(clienteAntigo.getId(), clienteAntigo.getNome());
-            clienteNovo.addVeiculo(novoVeiculo);
-            clienteArchive.editarClientes(clienteAntigo, clienteNovo);
-        }
-        JOptionPane.showMessageDialog(this.telaView, "VeÃ­culo salvo com sucesso!");
+        JOptionPane.showMessageDialog(this.telaView, "Veiculo foi criado com sucesso!");
         this.telaView.setVisible(false);
+
+        homeController = HomeController.getInstance();
+        homeController.carregarComboBox();
 
         limparCampos();
     }

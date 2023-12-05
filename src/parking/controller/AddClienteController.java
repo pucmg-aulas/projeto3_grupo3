@@ -48,7 +48,7 @@ public class AddClienteController {
         boolean idExistente = clienteArchive.getClientes().stream().anyMatch(cliente -> cliente.getId().equals(clienteId));
 
         if(idExistente){
-            JOptionPane.showMessageDialog(this.telaView, "Id jÃ¡ existente!", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.telaView, "Id ja existente!", "Erro", JOptionPane.ERROR_MESSAGE);
         }else{
             Cliente novoCliente = new Cliente(clienteNome, clienteId);
             clienteArchive.addCliente(novoCliente);

@@ -4,6 +4,7 @@ import parking.view.HomeView;
 import parking.archive.EstacionamentoArchive;
 
 import parking.model.Estacionamento;
+
 public class HomeController {
 
     private static HomeController homeController;
@@ -17,9 +18,9 @@ public class HomeController {
         }
         return homeController;
     }
-    
+
     private HomeController() {
-      
+
         telaView = new HomeView();
         estacionamentoArchive = EstacionamentoArchive.getInstance();
 
@@ -37,10 +38,11 @@ public class HomeController {
                 abrirAddEstacionamentoView();
             }
         });
-        // telaView.getMenuItemAddVaga().addActionListener(new java.awt.event.ActionListener() {
-        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
-        //         abrirAddVagaView();
-        //     }
+        // telaView.getMenuItemAddVaga().addActionListener(new
+        // java.awt.event.ActionListener() {
+        // public void actionPerformed(java.awt.event.ActionEvent evt) {
+        // abrirAddVagaView();
+        // }
         // });
         telaView.getMenuItemAddVeiculo().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +91,7 @@ public class HomeController {
 
     private void abrirAddVeiculoView() {
         AddVeiculoController.getInstance().abrirTelaView();
-    } 
+    }
 
     private void abrirListarVagaView() {
         ListarVagaController.getInstance().abrirTelaView();
@@ -106,7 +108,8 @@ public class HomeController {
     public void carregarComboBox() {
         telaView.getEstacionamentoComboBox().removeAllItems();
         for (Estacionamento estacionamento : estacionamentoArchive.getEstacionamentos()) {
-            telaView.getEstacionamentoComboBox().addItem(estacionamento.getNome() + " - " + estacionamento.getVagas().size() + " vagas");
+            telaView.getEstacionamentoComboBox()
+                    .addItem(estacionamento.getNome() + " - " + estacionamento.getVagas().size() + " vagas");
         }
     }
 }

@@ -28,26 +28,34 @@ public class Veiculo implements Serializable {
         this.vaga = vaga;
     }
 
-    public void estacionar(Vaga vaga, Veiculo carro){
+    public void estacionar(Vaga vaga, Veiculo carro) {
         // vaga.ocupada = true;
         // vaga.veiculo = carro
     }
 
-    public double sair(String placa){
+    public double sair(String placa) {
         // vaga.ocupada = false;
         // vaga.veiculo = null;
         return 0.0;
     }
 
-    public double totalArrecadado(){
+    public double totalArrecadado() {
+        // int numero = 1; 
+        // boolean disponivel = true;
+        // Vaga vaga = new Vaga(numero, disponivel);
+        // int vagaNumero = vaga.getNumero();
+        // UsoDeVaga usoDeVaga = new UsoDeVaga(vaga);
+        // double total = usoDeVaga.getValorPago();
+        // return total;
+        return 0.0;
+
+    }
+
+    public double arrecadadoNoMes(int mes) {
         return 0.0;
     }
 
-    public double arrecadadoNoMes(int mes){
-        return 0.0;
-    }
-
-    public int totalDeUsos(){
+    public int totalDeUsos() {
         return 0;
     }
 
