@@ -14,6 +14,8 @@ public class HomeView extends JFrame {
     private JMenuItem menuItemAddVeiculo = new JMenuItem();
     private JMenuItem menuItemAddCliente = new JMenuItem();
     private JMenuItem menuItemGerenciarVagas = new JMenuItem();
+    private JMenuItem menuItemGerenciarClientes = new JMenuItem();
+    private JMenuItem menuItemGerenciarEstacionamentos = new JMenuItem();
     private JMenuItem buttonExitMenu = new JMenuItem();
     private JComboBox<String> estacionamentoComboBox = new JComboBox<>();
     private static Logger logger = Logger.getLogger(HomeView.class.getName());
@@ -67,6 +69,8 @@ public class HomeView extends JFrame {
 
         menuExibir.setText("Exibir");
         menuExibir.add(menuItemGerenciarVagas);
+        menuExibir.add(menuItemGerenciarClientes);
+        menuExibir.add(menuItemGerenciarEstacionamentos);
 
         menuItemAddEstacionamento.setText("Estacionamento");
         menuItemAddCliente.setText("Cliente");
@@ -74,6 +78,8 @@ public class HomeView extends JFrame {
         menuItemAddVaga.setText("Vaga");
 
         menuItemGerenciarVagas.setText("Vagas");
+        menuItemGerenciarClientes.setText("Clientes");
+        menuItemGerenciarEstacionamentos.setText("Estacionamentos");
 
         buttonExitMenu.setText("Sair");
 
