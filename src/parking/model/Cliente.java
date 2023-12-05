@@ -45,11 +45,19 @@ public class Cliente {
     }
 
     public double arrecadadoTotal() {
-        return 0.0;
+        double total = 0.0;
+        for (Veiculo veiculo : veiculos) {
+            total += veiculo.getArrecadado();
+        }
+        return total;
     }
 
     public double arrecadadoNoMes(int mes) {
-        return 0.0;
+        double total = 0.0;
+        for (Veiculo veiculo : veiculos) {
+            total += veiculo.arrecadadoNoMes(mes);
+        }
+        return total;
     }
 
     public String getNome() {

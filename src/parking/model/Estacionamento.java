@@ -36,7 +36,7 @@ public class Estacionamento implements Serializable {
         return 0.0;
     }
 
-    public double totalArrecadado(){
+    public double totalArrecadado(){ 
         return 0.0;
     }
 

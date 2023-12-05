@@ -26,10 +26,27 @@ public class UsoDeVaga {
     }
 
     private double calcularValorPago(int minutos) {
-        return 0;
+        double totalValorPago = 0.0;
+        if (minutos > 0) {
+            totalValorPago = VALOR_FRACAO * minutos;
+            if (totalValorPago > VALOR_MAXIMO) {
+                totalValorPago = VALOR_MAXIMO;
+            }
+        }
+        return totalValorPago;
+    }
+
+    public double getValorPago() {
+        return valorPago;
     }
 
     public double valorPago(){
-        return 0.0;
+        double total = 0.0;
+        if (entrada != null && saida != null) {
+            Duration duracao = Duration.between(entrada, saida);
+            int minutos = (int) duracao.toMinutes();
+            total = calcularValorPago(minutos);
+        }
+        return total;
     }
 }
