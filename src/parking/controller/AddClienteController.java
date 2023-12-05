@@ -35,13 +35,19 @@ public class AddClienteController {
         String clienteNome = this.telaView.getTextNomeCliente().getText();
         String clienteId = this.telaView.getTextIdCliente().getText();
 
-        Cliente novoCliente = new Cliente(clienteNome, clienteId);
+        ClienteArchive clienteArchive = ClienteArchive.getInstance();
+        boolean idExistente = clienteArchive.getClientes().stream().anyMatch(cliente -> cliente.getId().equals(clienteId));
 
-        clienteArchive.addCliente(novoCliente);
+        if(idExistente){
+            JOptionPane.showMessageDialog(this.telaView, "Id jÃ¡ existente!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }else{
+            Cliente novoCliente = new Cliente(clienteNome, clienteId);
+            clienteArchive.addCliente(novoCliente);
 
-        JOptionPane.showMessageDialog(this.telaView, "Cliente salvo com sucesso!");
+            JOptionPane.showMessageDialog(this.telaView, "Cliente salvo com sucesso!");
 
-        limparCampos();
+            limparCampos();
+        }
     }
 
     private void limparCampos() {
