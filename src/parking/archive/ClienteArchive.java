@@ -2,19 +2,18 @@ package parking.archive;
 
 import parking.model.*;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class ClienteArchive extends AbstractArchive {
 
-    private List<Cliente> clientes;
     private static ClienteArchive clienteArchive;
+    private List<Cliente> clientes;
+
     private final String filePath = "./src/parking/data/Cliente.dat";
 
     private ClienteArchive() {
-        clientes = new ArrayList<>();
-        carregaClientes();
+        clientes = fileRead(filePath);
     }
 
     public static ClienteArchive getInstance() {
@@ -26,10 +25,6 @@ public class ClienteArchive extends AbstractArchive {
 
     public List<Cliente> getClientes() {
         return clientes;
-    }
-
-    private void carregaClientes() {
-        clientes = fileRead(filePath);
     }
 
     public void addCliente(Cliente cliente) {

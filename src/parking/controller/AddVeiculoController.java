@@ -1,20 +1,47 @@
 package parking.controller;
 
+import parking.archive.ClienteArchive;
+import parking.model.Cliente;
 import parking.view.AddVeiculoView;
-import javax.swing.JOptionPane;
+
+import javax.swing.*;
+
 import parking.archive.VeiculoArchive;
 import parking.model.Veiculo;
 
+import java.util.List;
+import java.util.Objects;
+
 public class AddVeiculoController {
+
+    private static AddVeiculoController addVeiculoController;
 
     private AddVeiculoView telaView;
     private VeiculoArchive veiculoArchive;
+    private ClienteArchive clienteArchive;
 
-    public AddVeiculoController() {
-        
+    public static AddVeiculoController getInstance() {
+        if (addVeiculoController == null) {
+            addVeiculoController = new AddVeiculoController();
+        }
+        return addVeiculoController;
+    }
+
+    private AddVeiculoController() {
+
         telaView = new AddVeiculoView();
         veiculoArchive = VeiculoArchive.getInstance();
+        clienteArchive = ClienteArchive.getInstance();
 
+        List<String> nomesClientes = clienteArchive.getClientes()
+                .stream()
+                .map(cliente -> "%s: \"%s\"".formatted(cliente.getId(), cliente.getNome()))
+                .toList();
+
+        for(String nome : nomesClientes){
+            telaView.getClienteComboBox().addItem(nome);
+        }
+        
         telaView.getButtonSalvar().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adicionarVeiculo();
@@ -37,8 +64,18 @@ public class AddVeiculoController {
 
         Veiculo novoVeiculo = new Veiculo(veiculoPlaca, numeroVaga);
 
+        String clienteId = Objects.requireNonNull(this.telaView.getClienteComboBox().getSelectedItem()).toString().split(":", 1)[0];
+
+        ClienteArchive clienteArchive = ClienteArchive.getInstance();
+        Cliente clienteAntigo = clienteArchive.getClientes().stream().filter(clienteElemento -> clienteElemento.getId().equals(clienteId)).findFirst().orElse(null);
+
         veiculoArchive.addVeiculo(novoVeiculo);
-        JOptionPane.showMessageDialog(this.telaView, "Veículo salvo com sucesso!");
+        if(clienteAntigo != null){
+            Cliente clienteNovo = new Cliente(clienteAntigo.getId(), clienteAntigo.getNome());
+            clienteNovo.addVeiculo(novoVeiculo);
+            clienteArchive.editarClientes(clienteAntigo, clienteNovo);
+        }
+        JOptionPane.showMessageDialog(this.telaView, "VeÃ­culo salvo com sucesso!");
         this.telaView.setVisible(false);
 
         limparCampos();

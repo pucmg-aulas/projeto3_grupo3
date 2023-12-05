@@ -13,7 +13,17 @@ public class ListarVagaController {
     private final ListarVagaView telaView;
     private VeiculoArchive veiculoArchive;
 
-    public ListarVagaController() {
+    private static ListarVagaController ListarVagaController;
+
+    public static ListarVagaController getInstance() {
+        if (ListarVagaController == null) {
+            ListarVagaController = new ListarVagaController();
+        }
+        
+        return ListarVagaController;
+    }
+
+    private ListarVagaController() {
 
         telaView = new ListarVagaView();
         veiculoArchive = VeiculoArchive.getInstance();

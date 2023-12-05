@@ -2,8 +2,9 @@ package parking.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
-public class Cliente {
+public class Cliente implements Serializable {
     private String nome;
     private String id;
     private List<Veiculo> veiculos;

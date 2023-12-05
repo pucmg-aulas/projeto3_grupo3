@@ -1,14 +1,36 @@
 package parking.controller;
 
 import parking.view.HomeView;
+import parking.archive.EstacionamentoArchive;
 
+import parking.model.Estacionamento;
 public class HomeController {
 
+    private static HomeController homeController;
     private final HomeView telaView;
 
-    public HomeController() {
+    private final EstacionamentoArchive estacionamentoArchive;
 
+    public static HomeController getInstance() {
+        if (homeController == null) {
+            homeController = new HomeController();
+        }
+        return homeController;
+    }
+    
+    private HomeController() {
+      
         telaView = new HomeView();
+        estacionamentoArchive = EstacionamentoArchive.getInstance();
+
+        carrergarComboBox();
+
+        if (estacionamentoArchive.getEstacionamentos().size() == 0) {
+            telaView.getMenuItemAddVaga().setEnabled(false);
+            telaView.getMenuItemAddVeiculo().setEnabled(false);
+            telaView.getMenuItemAddCliente().setEnabled(false);
+            telaView.getMenuItemGerenciarVagas().setEnabled(false);
+        }
 
         telaView.getMenuItemAddEstacionamento().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,23 +66,30 @@ public class HomeController {
         telaView.setVisible(true);
     }
 
-    private AddClienteController abrirAbrirClienteView() {
-        return new AddClienteController();
+    private void abrirAbrirClienteView() {
+        AddClienteController.getInstance();
     }
 
-    private AddEstacionamentoController abrirAddEstacionamentoView() {
-        return new AddEstacionamentoController();
+    private void abrirAddEstacionamentoView() {
+        AddEstacionamentoController.getInstance();
     }
 
     // private AddVagaController abrirAddVagaView() {
     //     return new AddVagaController();
     // }
 
-    private AddVeiculoController abrirAddVeiculoView() {
-        return new AddVeiculoController();
+    private void abrirAddVeiculoView() {
+        AddVeiculoController.getInstance();
     } 
 
-    private ListarVagaController abrirListarVagaView() {
-        return new ListarVagaController();
+    private void abrirListarVagaView() {
+        ListarVagaController.getInstance();
+    }
+
+    public void carrergarComboBox() {
+        telaView.getEstacionamentoComboBox().removeAllItems();
+        for (Estacionamento estacionamento : estacionamentoArchive.getEstacionamentos()) {
+            telaView.getEstacionamentoComboBox().addItem(estacionamento.getNome() + " - " + estacionamento.getVagas().size() + " vagas");
+        }
     }
 }

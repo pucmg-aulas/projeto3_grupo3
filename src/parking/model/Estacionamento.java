@@ -12,6 +12,11 @@ public class Estacionamento implements Serializable {
         this.vagas = vagas;
     }
 
+    public Estacionamento(String nome) {
+        this.nome = nome;
+        this.vagas = null;
+    }
+
     public String getNome(){
         return nome;
     }

@@ -1,6 +1,8 @@
 package parking.model;
 
-public class Vaga {
+import java.io.Serializable;
+
+public class Vaga implements Serializable {
 
     private int id;
     private int fila;

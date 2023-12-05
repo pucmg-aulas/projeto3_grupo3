@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.logging.Logger;
 
-import parking.model.Estacionamento;
-
 public class HomeView extends JFrame {
 
     private JMenuBar jMenuBar = new JMenuBar();
@@ -17,13 +15,21 @@ public class HomeView extends JFrame {
     private JMenuItem menuItemAddCliente = new JMenuItem();
     private JMenuItem menuItemGerenciarVagas = new JMenuItem();
     private JMenuItem buttonExitMenu = new JMenuItem();
-    private JComboBox<Estacionamento> listEstacionamentos = new JComboBox<Estacionamento>();
+    private JComboBox<String> estacionamentoComboBox = new JComboBox<>();
     private static Logger logger = Logger.getLogger(HomeView.class.getName());
 
     public HomeView() {
         initComponents();
         setTitle("Xulambs Parking");
         setLocationRelativeTo(null);
+    }
+
+    public JComboBox<String> getEstacionamentoComboBox() {
+        return estacionamentoComboBox;
+    }
+
+    public void setEstacionamentoComboBox(JComboBox<String> estacionamentoComboBox) {
+        this.estacionamentoComboBox = estacionamentoComboBox;
     }
 
     public JMenuItem getMenuItemAddEstacionamento() {
@@ -75,7 +81,7 @@ public class HomeView extends JFrame {
 
         jMenuBar.add(menuAdicionar);
         jMenuBar.add(menuExibir);
-        jMenuBar.add(listEstacionamentos);
+        jMenuBar.add(estacionamentoComboBox);
         jMenuBar.add(buttonExitMenu);
 
         setJMenuBar(jMenuBar);

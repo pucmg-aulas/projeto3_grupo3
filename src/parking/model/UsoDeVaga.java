@@ -1,9 +1,10 @@
 package parking.model;
 
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class UsoDeVaga {
+public class UsoDeVaga implements Serializable {
     static final double FRACAO_USO = 0.25;
     static final double VALOR_FRACAO = 4.0;
     static final double VALOR_MAXIMO = 50.0;
