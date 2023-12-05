@@ -2,17 +2,17 @@ package parking.view;
 
 import javax.swing.*;
 
-public class ListarVagaView extends JFrame {
+public class ListarEstacionamentoView extends JFrame {
 
     private JButton buttonExcluir = new JButton();
     private JButton buttonEditar  = new JButton();
     private JButton buttonVoltar  = new JButton();
     private JScrollPane jScrollPane = new JScrollPane();
-    private JTable tableVagas = new JTable();
+    private JTable tableEstacionamentos = new JTable();
 
-    public ListarVagaView() {
+    public ListarEstacionamentoView() {
         initComponents();
-        setTitle("Xulambs Parking - Gerenciar vagas");
+        setTitle("Xulambs Parking - Gerenciar estacionamentos");
         setLocationRelativeTo(null);
     }
 
@@ -28,12 +28,12 @@ public class ListarVagaView extends JFrame {
         return buttonVoltar;
     }
 
-    public JTable getTableVagas() {
-        return tableVagas;
+    public JTable getTableEstacionamentos() {
+        return tableEstacionamentos;
     }
 
-    public void setTableVagas(JTable tableVagas) {
-        this.tableVagas = tableVagas;
+    public void setTableEstacionamentos(JTable tableEstacionamentos) {
+        this.tableEstacionamentos = tableEstacionamentos;
     }
 
     private void initComponents() {
@@ -42,7 +42,7 @@ public class ListarVagaView extends JFrame {
         buttonExcluir.setText("Excluir");
         buttonVoltar.setText("Voltar");
 
-        jScrollPane.setViewportView(tableVagas);
+        jScrollPane.setViewportView(tableEstacionamentos);
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,7 +81,7 @@ public class ListarVagaView extends JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new ListarVagaView().setVisible(true);
+                new ListarEstacionamentoView().setVisible(true);
             }
         });
     }

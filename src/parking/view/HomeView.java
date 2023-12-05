@@ -2,7 +2,6 @@ package parking.view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.logging.Logger;
 
 public class HomeView extends JFrame {
 
@@ -18,7 +17,6 @@ public class HomeView extends JFrame {
     private JMenuItem menuItemGerenciarEstacionamentos = new JMenuItem();
     private JMenuItem buttonExitMenu = new JMenuItem();
     private JComboBox<String> estacionamentoComboBox = new JComboBox<>();
-    private static Logger logger = Logger.getLogger(HomeView.class.getName());
 
     public HomeView() {
         initComponents();
@@ -51,6 +49,14 @@ public class HomeView extends JFrame {
 
     public JMenuItem getMenuItemGerenciarVagas() {
         return menuItemGerenciarVagas;
+    }
+
+    public JMenuItem getMenuItemGerenciarClientes() {
+        return menuItemGerenciarClientes;
+    }
+
+    public JMenuItem getMenuItemGerenciarEstacionamentos() {
+        return menuItemGerenciarEstacionamentos;
     }
 
     public JMenuItem getButtonExitMenu() {
@@ -101,23 +107,6 @@ public class HomeView extends JFrame {
     }
 
     public static void main(String args[]) {
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {

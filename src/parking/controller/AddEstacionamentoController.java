@@ -60,7 +60,7 @@ public class AddEstacionamentoController {
         this.telaView.setVisible(false);
 
         homeController = HomeController.getInstance();
-        homeController.carrergarComboBox();
+        homeController.carregarComboBox();
 
         limparCampos();
     }

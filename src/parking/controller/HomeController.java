@@ -23,7 +23,7 @@ public class HomeController {
         telaView = new HomeView();
         estacionamentoArchive = EstacionamentoArchive.getInstance();
 
-        carrergarComboBox();
+        carregarComboBox();
 
         if (estacionamentoArchive.getEstacionamentos().size() == 0) {
             telaView.getMenuItemAddVaga().setEnabled(false);
@@ -57,6 +57,19 @@ public class HomeController {
                 abrirListarVagaView();
             }
         });
+
+        telaView.getMenuItemGerenciarClientes().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                abrirListarClienteView();
+            }
+        });
+
+        telaView.getMenuItemGerenciarEstacionamentos().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                abrirListarEstacionamentoView();
+            }
+        });
+
         telaView.getButtonExitMenu().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 System.exit(0);
@@ -86,7 +99,15 @@ public class HomeController {
         ListarVagaController.getInstance();
     }
 
-    public void carrergarComboBox() {
+    private void abrirListarClienteView() {
+        ListarClienteController.getInstance();
+    }
+
+    private void abrirListarEstacionamentoView() {
+        ListarEstacionamentoController.getInstance();
+    }
+
+    public void carregarComboBox() {
         telaView.getEstacionamentoComboBox().removeAllItems();
         for (Estacionamento estacionamento : estacionamentoArchive.getEstacionamentos()) {
             telaView.getEstacionamentoComboBox().addItem(estacionamento.getNome() + " - " + estacionamento.getVagas().size() + " vagas");

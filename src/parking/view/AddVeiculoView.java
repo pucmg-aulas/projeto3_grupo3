@@ -1,7 +1,6 @@
 package parking.view;
 
 import javax.swing.*;
-import java.util.logging.Logger;
 
 public class AddVeiculoView extends JFrame {
 
@@ -14,7 +13,6 @@ public class AddVeiculoView extends JFrame {
     private JPanel jPanel3 = new JPanel();
     private JTextField textPlacaVeiculo = new JTextField();
     private JTextField textVagaVeiculo = new JTextField();
-    private static Logger logger = Logger.getLogger(AddVeiculoView.class.getName());
 
     public AddVeiculoView() {
         initComponents();
@@ -130,24 +128,6 @@ public class AddVeiculoView extends JFrame {
     }
 
     public static void main(String args[]) {
-        
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
