@@ -2,20 +2,18 @@ package parking.archive;
 
 import parking.model.*;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class VeiculoArchive extends AbstractArchive implements Serializable {
+public class VeiculoArchive extends AbstractArchive {
 
-    private List<Veiculo> veiculos;
     private static VeiculoArchive veiculoArchive;
+    private List<Veiculo> veiculos;
+
     private final String filePath = "./src/parking/data/Veiculo.dat";
 
     private VeiculoArchive() {
-        veiculos = new ArrayList<>();
-        carregaVeiculos();
+        veiculos = fileRead(filePath);
     }
 
     public static VeiculoArchive getInstance() {
@@ -27,10 +25,6 @@ public class VeiculoArchive extends AbstractArchive implements Serializable {
 
     public List<Veiculo> getVeiculos() {
         return veiculos;
-    }
-
-    private void carregaVeiculos() {
-        veiculos = fileRead(filePath);
     }
 
     public void addVeiculo(Veiculo veiculo) {

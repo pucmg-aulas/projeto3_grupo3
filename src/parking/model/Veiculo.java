@@ -7,6 +7,11 @@ public class Veiculo implements Serializable {
     private String placa;
     private String vaga;
 
+    public Veiculo(String placa, String vaga) {
+        this.placa = placa;
+        this.vaga = vaga;
+    }
+
     public String getPlaca() {
         return placa;
     }
@@ -20,11 +25,6 @@ public class Veiculo implements Serializable {
     }
 
     public void setUsos(String vaga) {
-        this.vaga = vaga;
-    }
-
-    public Veiculo(String placa, String vaga) {
-        this.placa = placa;
         this.vaga = vaga;
     }
 

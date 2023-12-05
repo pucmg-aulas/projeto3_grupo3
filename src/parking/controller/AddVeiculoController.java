@@ -38,8 +38,8 @@ public class AddVeiculoController {
         Veiculo novoVeiculo = new Veiculo(veiculoPlaca, numeroVaga);
 
         veiculoArchive.addVeiculo(novoVeiculo);
-
         JOptionPane.showMessageDialog(this.telaView, "Veículo salvo com sucesso!");
+        this.telaView.setVisible(false);
 
         limparCampos();
     }

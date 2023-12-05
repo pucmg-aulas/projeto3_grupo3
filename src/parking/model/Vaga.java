@@ -8,8 +8,9 @@ public class Vaga {
     private boolean disponivel;
     private Veiculo veiculo;
 
-    public Vaga(int numero) {
+    public Vaga(int numero, boolean disponivel) {
         this.numero = numero;
+        this.disponivel = disponivel;
     }
 
     public Veiculo getVeiculo() {

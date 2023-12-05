@@ -2,12 +2,11 @@ package parking.archive;
 
 import parking.model.*;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ClienteArchive extends AbstractArchive implements Serializable {
+public class ClienteArchive extends AbstractArchive {
 
     private List<Cliente> clientes;
     private static ClienteArchive clienteArchive;

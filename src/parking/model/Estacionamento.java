@@ -7,6 +7,11 @@ public class Estacionamento implements Serializable {
     private String nome;
     private List<Vaga> vagas;
 
+    public Estacionamento(String nome, List<Vaga> vagas) {
+        this.nome = nome;
+        this.vagas = vagas;
+    }
+
     public String getNome(){
         return nome;
     }
@@ -20,11 +25,6 @@ public class Estacionamento implements Serializable {
     }
 
     public void setVagas(List<Vaga> vagas){
-        this.vagas = vagas;
-    }
-
-    public Estacionamento(String nome, List<Vaga> vagas) {
-        this.nome = nome;
         this.vagas = vagas;
     }
 

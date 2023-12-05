@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractArchive {
+public abstract class AbstractArchive implements Serializable {
     
     public <T> void fileWrite(String local, List<T> lista) {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(local))) {

@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.logging.Logger;
 
+import parking.model.Estacionamento;
+
 public class HomeView extends JFrame {
 
     private JMenuBar jMenuBar = new JMenuBar();
@@ -15,6 +17,7 @@ public class HomeView extends JFrame {
     private JMenuItem menuItemAddCliente = new JMenuItem();
     private JMenuItem menuItemGerenciarVagas = new JMenuItem();
     private JMenuItem buttonExitMenu = new JMenuItem();
+    private JComboBox<Estacionamento> listEstacionamentos = new JComboBox<Estacionamento>();
     private static Logger logger = Logger.getLogger(HomeView.class.getName());
 
     public HomeView() {
@@ -72,6 +75,7 @@ public class HomeView extends JFrame {
 
         jMenuBar.add(menuAdicionar);
         jMenuBar.add(menuExibir);
+        jMenuBar.add(listEstacionamentos);
         jMenuBar.add(buttonExitMenu);
 
         setJMenuBar(jMenuBar);
