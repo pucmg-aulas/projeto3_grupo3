@@ -2,14 +2,22 @@ package parking.model;
 
 public class Vaga {
 
-    private Integer id;
+    private int id;
     private int fila;
     private int numero;
     private boolean disponivel;
+    private Veiculo veiculo;
 
-    public Vaga(int fila, int numero) {
-        this.fila = fila;
+    public Vaga(int numero) {
         this.numero = numero;
+    }
+
+    public Veiculo getVeiculo() {
+        return this.veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
 
     public boolean estacionar() {

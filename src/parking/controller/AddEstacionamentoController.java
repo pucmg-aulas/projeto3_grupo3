@@ -1,6 +1,12 @@
 package parking.controller;
 
 import parking.view.AddEstacionamentoView;
+import parking.model.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.*;
 
 public class AddEstacionamentoController {
     
@@ -10,11 +16,11 @@ public class AddEstacionamentoController {
         
         telaView = new AddEstacionamentoView();
 
-        // telaView.getButtonSalvar().addActionListener(new java.awt.event.ActionListener() {
-        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
-        //         adicionarEstacionamento();
-        //     }
-        // });
+        telaView.getButtonSalvar().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adicionarEstacionamento();
+            }
+        });
 
         telaView.getButtonCancelar().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -25,24 +31,39 @@ public class AddEstacionamentoController {
         telaView.setVisible(true);
     }
 
-    // private void adicionarEstacionamento() {
+    private void adicionarEstacionamento() {
 
-    //     String estacionamentoNome = this.telaView.getTextNomeEstacionamento().getText();
-    //     int quantidadeVagas = (int) this.telaView.getSpinnerQuantidadeVagas().getValue();
+    String estacionamentoNome = this.telaView.getTextNomeEstacionamento().getText();
+    int quantidadeVagas = (int) this.telaView.getSpinnerQuantidadeVagas().getValue();
 
-    //     Estacionamento novoEstacionamento = new Estacionamento(estacionamentoNome, quantidadeVagas);
+    List<Vaga> vagas = new ArrayList<>();
+    Estacionamento estacionamento = null;
 
-    //     estacionamentoArchive.addEstacionamento(novoEstacionamento);
+    for (int i = 0; i < quantidadeVagas; i++) {
+        estacionamento = new Estacionamento(estacionamentoNome, new ArrayList<>());
+        Vaga vaga = new Vaga(i);
+        estacionamento.getVagas().add(vaga);
+        vagas.add(vaga);
+    }
 
-    //     JOptionPane.showMessageDialog(this.telaView, "Estacionamento salvo com sucesso!");
+    Estacionamento novoEstacionamento = new Estacionamento(estacionamentoNome, vagas);
 
-    //     limparCampos();
-    // }
+    Estacionamento.addEstacionamento(novoEstacionamento);
+
+    JOptionPane.showMessageDialog(this.telaView, "Estacionamento salvo com sucesso!");
+
+    limparCampos();
+}
 
     // private void limparCampos() {
     //     this.telaView.getTextNomeEstacionamento().setText("");
     //     this.telaView.getSpinnerQuantidadeVagas().setValue(1);
     // }
+
+    private void limparCampos() {
+        this.telaView.getTextNomeEstacionamento().setText("");
+        this.telaView.getSpinnerQuantidadeVagas().setValue(1);
+    }
 
     private void fecharTelaView() {
         this.telaView.setVisible(false);

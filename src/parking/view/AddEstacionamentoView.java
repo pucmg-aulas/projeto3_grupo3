@@ -28,6 +28,19 @@ public class AddEstacionamentoView extends JFrame {
         return buttonCancelar;
     }
 
+    public JTextField getTextFieldNome() {
+        return textFieldNome;
+    }
+    public JSpinner getSpinnerQuantidadeVagas() {
+        return spinnerQuantidadeVagas;
+    }
+    public JLabel getLabelQuantidadeVagas() {
+        return labelQuantidadeVagas;
+    }
+    public JTextField getTextNomeEstacionamento () {
+        return textFieldNome;
+    }
+
     private void initComponents() {
         setLayout(new GridLayout(3, 2, 10, 10));
 

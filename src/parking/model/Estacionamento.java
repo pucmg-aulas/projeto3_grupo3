@@ -1,39 +1,43 @@
 package parking.model;
 
+import java.util.List;
 import java.io.Serializable;
 public class Estacionamento implements Serializable {
 
-    public String nome;
-    public Cliente[] id;
-    public Vaga[] vagas;
-    public int fileiras;
-    public int vagasPorFileira;
+    private String nome;
+    private List<Vaga> vagas;
 
-    public Estacionamento(String nome, int fileiras, int vagasPorFileira) {
+    public String getNome(){
+        return nome;
+    }
+
+    public void setNome(String nome){
         this.nome = nome;
-        this.fileiras = fileiras;
-        this.vagasPorFileira = vagasPorFileira;
     }
 
-    public void addVeiculo(Veiculo veiculo, String idCliente){
-
+    public List<Vaga> getVagas(){
+        return vagas;
     }
 
-    public void addCliente(Cliente cliente){
-
+    public void setVagas(List<Vaga> vagas){
+        this.vagas = vagas;
     }
 
-    private void gerarVagas(){
-
+    public Estacionamento(String nome, List<Vaga> vagas) {
+        this.nome = nome;
+        this.vagas = vagas;
     }
 
-    public void estacionar(String placa){
-
-    }
-
-    public double sair(String placa){
-        this.gerarVagas();
-        return 0.0;
+    public void EstacionarCarro (Veiculo veiculo){
+        for (Vaga vaga : vagas) {
+            if (vaga.getVeiculo() == null) {
+                vaga.setVeiculo(veiculo);
+                return ;
+            } else {
+                System.out.println("Todas vagas lotada");
+                return ;
+            }
+        }
     }
 
     public double totalArrecadado(){ 
@@ -50,5 +54,9 @@ public class Estacionamento implements Serializable {
 
     public String top5Clientes(int mes){
         return "";
+    }
+
+    public static void addEstacionamento(Estacionamento novoEstacionamento) {
+        
     }
 }
