@@ -20,6 +20,7 @@ public class AddEstacionamentoController {
         if (addEstacionamentoController == null) {
             addEstacionamentoController = new AddEstacionamentoController();
         }
+
         return addEstacionamentoController;
     }
 
@@ -39,14 +40,22 @@ public class AddEstacionamentoController {
                 fecharTelaView();
             }
         });
-
-        telaView.setVisible(true);
     }
 
     private void adicionarEstacionamento() {
 
         String estacionamentoNome = this.telaView.getTextNomeEstacionamento().getText();
         int quantidadeVagas = (int) this.telaView.getSpinnerQuantidadeVagas().getValue();
+
+        if (estacionamentoNome.length() < 5) {
+            JOptionPane.showMessageDialog(this.telaView, "Nome do estacionamento deve ter pelo menos 5 caracteres!");
+            return;
+        }
+
+        if (estacionamentoArchive.buscarEstacionamentoPorNome(estacionamentoNome) != null) {
+            JOptionPane.showMessageDialog(this.telaView, "Nome do estacionamento já existe!");
+            return;
+        }
     
         List<Vaga> estacionamentoVagas = new ArrayList<Vaga>();
         for (int i = 0; i < quantidadeVagas; i++) {
@@ -54,7 +63,6 @@ public class AddEstacionamentoController {
         }
 
         Estacionamento novoEstacionamento = new Estacionamento(estacionamentoNome, estacionamentoVagas);
-        // Estacionamento novoEstacionamento = new Estacionamento(estacionamentoNome);
         estacionamentoArchive.addEstacionamento(novoEstacionamento);
         JOptionPane.showMessageDialog(this.telaView, "Estacionamento criado com sucesso!");
         this.telaView.setVisible(false);
@@ -70,7 +78,11 @@ public class AddEstacionamentoController {
         this.telaView.getSpinnerQuantidadeVagas().setValue(1);
     }
 
-    private void fecharTelaView() {
+    public void abrirTelaView() {
+        this.telaView.setVisible(true);
+    }
+
+    public void fecharTelaView() {
         this.telaView.setVisible(false);
     }
 }

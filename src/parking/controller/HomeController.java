@@ -84,27 +84,23 @@ public class HomeController {
     }
 
     private void abrirAddEstacionamentoView() {
-        AddEstacionamentoController.getInstance();
+        AddEstacionamentoController.getInstance().abrirTelaView();
     }
 
-    // private AddVagaController abrirAddVagaView() {
-    //     return new AddVagaController();
-    // }
-
     private void abrirAddVeiculoView() {
-        AddVeiculoController.getInstance();
+        AddVeiculoController.getInstance().abrirTelaView();
     } 
 
     private void abrirListarVagaView() {
-        ListarVagaController.getInstance();
+        ListarVagaController.getInstance().abrirTelaView();
     }
 
     private void abrirListarClienteView() {
-        ListarClienteController.getInstance();
+        ListarClienteController.getInstance().abrirTelaView();
     }
 
     private void abrirListarEstacionamentoView() {
-        ListarEstacionamentoController.getInstance();
+        ListarEstacionamentoController.getInstance().abrirTelaView();
     }
 
     public void carregarComboBox() {

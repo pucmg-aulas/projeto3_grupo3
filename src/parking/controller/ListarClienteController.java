@@ -46,8 +46,10 @@ public class ListarClienteController {
         //         excluirCliente();
         //     }
         // });
+    }
 
-        telaView.setVisible(true);
+    public void abrirTelaView() {
+        this.telaView.setVisible(true);
     }
 
     private void carregarTabela() {

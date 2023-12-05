@@ -47,8 +47,10 @@ public class ListarVagaController {
                 excluirVeiculo();
             }
         });
+    }
 
-        telaView.setVisible(true);
+    public void abrirTelaView() {
+        this.telaView.setVisible(true);
     }
 
     private void carregarTabela() {
@@ -89,14 +91,18 @@ public class ListarVagaController {
             JOptionPane.showMessageDialog(telaView, placa + " Excluído com Sucesso!");
             carregarTabela();
         } else {
-            JOptionPane.showMessageDialog(null, "Veículo não encontrado");
+            if (op == JOptionPane.NO_OPTION || op == JOptionPane.CANCEL_OPTION) 
+                JOptionPane.showMessageDialog(null, "Operação cancelada");
+            else
+                JOptionPane.showMessageDialog(null, "Veículo não encontrado");
         }
     }
 
     private void editarVeiculo() {
-        // Vou abrir a view de adicionar veículo com o titulo de editar
+
         AddVeiculoView addVeiculoView = new AddVeiculoView();
         addVeiculoView.setTitle("Editar Veículo");
+        addVeiculoView.setVisible(true);
 
         int linha = telaView.getTableVagas().getSelectedRow();
         String placa = (String) telaView.getTableVagas().getValueAt(linha, 2);
@@ -120,7 +126,5 @@ public class ListarVagaController {
                 carregarTabela();
             }
         });
-
-        addVeiculoView.setVisible(true);
     }
 }

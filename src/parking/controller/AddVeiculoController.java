@@ -53,8 +53,7 @@ public class AddVeiculoController {
                 fecharTelaView();
             }
         });
-
-        telaView.setVisible(true);
+        
     }
 
     private void adicionarVeiculo() {
@@ -86,7 +85,11 @@ public class AddVeiculoController {
         this.telaView.getTextVagaVeiculo().setText("");
     }
 
-    private void fecharTelaView() {
+    public void abrirTelaView() {
+        this.telaView.setVisible(true);
+    }
+
+    public void fecharTelaView() {
         this.telaView.setVisible(false);
     }
 }

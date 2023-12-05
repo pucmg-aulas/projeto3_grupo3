@@ -57,8 +57,8 @@ public class AddEstacionamentoView extends JFrame {
         add(textFieldNome);
         add(labelQuantidadeVagas);
         add(spinnerQuantidadeVagas);
-        add(buttonSalvar);
         add(buttonCancelar);
+        add(buttonSalvar);
 
         setPreferredSize(new Dimension(300, 150));
 

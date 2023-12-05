@@ -1,11 +1,15 @@
 package parking.controller;
 
+import java.util.List;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
+
+import parking.view.AddEstacionamentoView;
 import parking.view.ListarEstacionamentoView;
 import javax.swing.table.DefaultTableModel;
 import parking.archive.EstacionamentoArchive;
 import parking.model.Estacionamento;
+import parking.model.Vaga;
 
 public class ListarEstacionamentoController {
 
@@ -35,19 +39,21 @@ public class ListarEstacionamentoController {
             }
         });
 
-        // telaView.getButtonEditar().addActionListener(new java.awt.event.ActionListener() {
-        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
-        //         editarVeiculo();
-        //     }
-        // });
-
-        telaView.getButtonExcluir().addActionListener(new java.awt.event.ActionListener() {
+        telaView.getButtonEditar().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                excluirVeiculo();
+                editarEstacionamento();
             }
         });
 
-        telaView.setVisible(true);
+        telaView.getButtonExcluir().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirEstacionamento();
+            }
+        });
+    }
+
+    public void abrirTelaView() {
+        this.telaView.setVisible(true);
     }
 
     private void carregarTabela() {
@@ -63,7 +69,7 @@ public class ListarEstacionamentoController {
         this.telaView.getTableEstacionamentos().setModel(tm);
     }
 
-    private void excluirVeiculo () {
+    private void excluirEstacionamento () {
 
         int linha = telaView.getTableEstacionamentos().getSelectedRow();
 
@@ -72,48 +78,62 @@ public class ListarEstacionamentoController {
             return;
         }
 
-        // String placa = (String) telaView.getTableEstacionamentos().getValueAt(linha, 2);
-        // Veiculo veiculo = veiculoArchive.buscarVeiculoPorPlaca(placa);
+        String nome = (String) telaView.getTableEstacionamentos().getValueAt(linha, 0);
+        Estacionamento estacionamento = estacionamentoArchive.buscarEstacionamentoPorNome(nome);
 
-        // int op = JOptionPane.showConfirmDialog(telaView, "Deseja excluir " + placa + "?");
+        int op = JOptionPane.showConfirmDialog(telaView, "Deseja excluir estacionamento " + estacionamento.getNome() + "?");
 
-        // if (veiculo != null && op == JOptionPane.YES_OPTION) {
-        //     veiculoArchive.removeVeiculo(veiculo);
-        //     JOptionPane.showMessageDialog(telaView, placa + " Excluído com Sucesso!");
-        //     carregarTabela();
-        // } else {
-        //     JOptionPane.showMessageDialog(null, "Veículo não encontrado");
-        // }
+        if (estacionamento != null && op == JOptionPane.YES_OPTION) {
+            estacionamentoArchive.removeEstacionamento(estacionamento);
+            JOptionPane.showMessageDialog(telaView, nome + " Excluído com Sucesso!");
+            carregarTabela();
+        } else {
+            if (op == JOptionPane.NO_OPTION || op == JOptionPane.CANCEL_OPTION) 
+                JOptionPane.showMessageDialog(null, "Operação cancelada");
+            else
+                JOptionPane.showMessageDialog(null, "Estacionamento não encontrado");
+        }
     }
 
-    // private void editarVeiculo() {
-    //     // Vou abrir a view de adicionar veículo com o titulo de editar
-    //     AddVeiculoView addVeiculoView = new AddVeiculoView();
-    //     addVeiculoView.setTitle("Editar Veículo");
+    private void editarEstacionamento() {
 
-    //     int linha = telaView.getTableEstacionamentos().getSelectedRow();
-    //     String placa = (String) telaView.getTableEstacionamentos().getValueAt(linha, 2);
-    //     String Estacionamento = (String) telaView.getTableEstacionamentos().getValueAt(linha, 3);
+        AddEstacionamentoView addEstacionamentoView = new AddEstacionamentoView();
+        addEstacionamentoView.setTitle("Editar Estacionamento");
+        addEstacionamentoView.setVisible(true);
 
-    //     addVeiculoView.getTextPlacaVeiculo().setText(placa);
-    //     addVeiculoView.getTextEstacionamentoVeiculo().setText(Estacionamento);
+        int linha = telaView.getTableEstacionamentos().getSelectedRow();
+        String nome = (String) telaView.getTableEstacionamentos().getValueAt(linha, 0);
+        int numeroVagas = (int) telaView.getTableEstacionamentos().getValueAt(linha, 1);
 
-    //     Veiculo veiculoAntigo = veiculoArchive.buscarVeiculoPorPlaca(placa);
+        addEstacionamentoView.getTextFieldNome().setText(nome);
+        addEstacionamentoView.getSpinnerQuantidadeVagas().setValue(numeroVagas);
 
-    //     addVeiculoView.getButtonSalvar().addActionListener(new java.awt.event.ActionListener() {
-    //         public void actionPerformed(java.awt.event.ActionEvent evt) {
-    //             String veiculoPlaca = addVeiculoView.getTextPlacaVeiculo().getText();
-    //             String veiculoEstacionamento = addVeiculoView.getTextEstacionamentoVeiculo().getText();
+        Estacionamento estacionamento = estacionamentoArchive.buscarEstacionamentoPorNome(nome);
 
-    //             veiculoArchive.editarVeiculo(new Veiculo(veiculoPlaca, veiculoEstacionamento), veiculoAntigo);
+        addEstacionamentoView.getButtonSalvar().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String nome = addEstacionamentoView.getTextFieldNome().getText();
+                int numeroVagas = (int) addEstacionamentoView.getSpinnerQuantidadeVagas().getValue();
 
-    //             JOptionPane.showMessageDialog(addVeiculoView, "Veículo editado com sucesso!");
+                List<Vaga> vagas = estacionamento.getVagas();
 
-    //             addVeiculoView.setVisible(false);
-    //             carregarTabela();
-    //         }
-    //     });
+                if (numeroVagas > vagas.size()) {
+                    for (int i = vagas.size(); i < numeroVagas; i++) {
+                        Vaga vaga = new Vaga(i, true);
+                        vagas.add(vaga);
+                    }
+                } else if (numeroVagas < vagas.size()) {
+                    for (int i = vagas.size(); i > numeroVagas; i--) {
+                        vagas.remove(i);
+                    }
+                }
 
-    //     addVeiculoView.setVisible(true);
-    // }
+                Estacionamento estacionamentoNovo = new Estacionamento(nome, vagas);
+                estacionamentoArchive.editarEstacionamento(estacionamentoNovo, estacionamento);
+                JOptionPane.showMessageDialog(null, "Estacionamento editado com sucesso!");
+                addEstacionamentoView.setVisible(false);
+                carregarTabela();
+            }
+        });
+    }
 }
