@@ -1,6 +1,10 @@
 package parking.view;
 
+import parking.archive.ClienteArchive;
+import parking.model.Cliente;
+
 import javax.swing.*;
+import java.util.List;
 import java.util.logging.Logger;
 
 public class AddVeiculoView extends JFrame {
@@ -9,6 +13,17 @@ public class AddVeiculoView extends JFrame {
     private JToggleButton buttonSalvar = new JToggleButton();
     private JLabel carroPlacaRotulo = new JLabel();
     private JLabel numeroVagaRotulo = new JLabel();
+    private JLabel clienteRotulo = new JLabel();
+    private JComboBox<String> clienteCombobox = new JComboBox<>();
+
+    public void setClienteCombobox(JComboBox<String> clienteCombobox) {
+        this.clienteCombobox = clienteCombobox;
+    }
+
+    public JComboBox<String> getClienteCombobox() {
+        return clienteCombobox;
+    }
+
     private JPanel jPanel3 = new JPanel();
     private JTextField textPlacaVeiculo = new JTextField();
     private JTextField textVagaVeiculo = new JTextField();
@@ -16,7 +31,7 @@ public class AddVeiculoView extends JFrame {
 
     public AddVeiculoView() {
         initComponents();
-        setTitle("Xulambs Parking - Adicionar veículo");
+        setTitle("Xulambs Parking - Adicionar veÃ­culo");
         setLocationRelativeTo(null);
     }
 
@@ -56,6 +71,7 @@ public class AddVeiculoView extends JFrame {
 
         carroPlacaRotulo.setText("Placa");
         numeroVagaRotulo.setText("Vaga");
+        clienteRotulo.setText("Cliente");
         buttonSalvar.setText("Salvar");
         buttonCancelar.setText("Cancelar");
 
@@ -70,9 +86,11 @@ public class AddVeiculoView extends JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(carroPlacaRotulo)
-                            .addComponent(numeroVagaRotulo))
+                            .addComponent(numeroVagaRotulo)
+                            .addComponent(clienteRotulo))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(textVagaVeiculo)
+                    .addComponent(clienteCombobox)
                     .addGroup(GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 112, Short.MAX_VALUE)
                         .addComponent(buttonCancelar)
@@ -91,6 +109,10 @@ public class AddVeiculoView extends JFrame {
                 .addComponent(numeroVagaRotulo)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textVagaVeiculo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(clienteRotulo)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(clienteCombobox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonSalvar)
