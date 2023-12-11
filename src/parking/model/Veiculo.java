@@ -4,8 +4,10 @@ import java.io.Serializable;
 
 public class Veiculo implements Serializable {
 
+    private UsoDeVaga usoDeVaga;
     private String placa;
     private String vaga;
+    private Vaga vaga2;
 
     public Veiculo(String placa, String vaga) {
         this.placa = placa;
@@ -40,19 +42,30 @@ public class Veiculo implements Serializable {
     }
 
     public double totalArrecadado() {
-        // int numero = 1; 
+
         // boolean disponivel = true;
-        // Vaga vaga = new Vaga(numero, disponivel);
-        // int vagaNumero = vaga.getNumero();
+        // int vagaNumero = 0;
+        // Vaga vaga = new Vaga(vagaNumero, disponivel);
         // UsoDeVaga usoDeVaga = new UsoDeVaga(vaga);
         // double total = usoDeVaga.getValorPago();
+
+        // for (int i = 2; i <= 10; i++) {
+        // vaga = new Vaga(i, disponivel);
+        // vagaNumero = vaga.getNumero();
+        // usoDeVaga = new UsoDeVaga(vaga);
+        // total += usoDeVaga.getValorPago();
+        // }
         // return total;
         return 0.0;
 
     }
 
     public double arrecadadoNoMes(int mes) {
-        return 0.0;
+        double total = 0.0;
+        for (int i = 0; i < 10; i++) {
+            total += usoDeVaga.getValorPago();
+        }
+        return total;
     }
 
     public int totalDeUsos() {
@@ -62,9 +75,14 @@ public class Veiculo implements Serializable {
     public int getTotalDeUsos() {
         return 0;
     }
+    
 
     public double getArrecadado() {
-        return 0;
+        double total = 0.0;
+        for (int i = 0; i < 10; i++) {
+        total += usoDeVaga.getValorPago();
+        }
+        return total;
     }
 
     @Override

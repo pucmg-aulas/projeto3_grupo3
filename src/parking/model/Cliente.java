@@ -65,6 +65,10 @@ public class Cliente implements Serializable {
         return nome;
     }
 
+    public String getCliente () {
+        return id;
+    }	
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -78,6 +82,9 @@ public class Cliente implements Serializable {
     }
 
     public List<Veiculo> getVeiculos() {
+        if (veiculos == null) {
+            veiculos = new ArrayList<>();
+        }
         return veiculos;
     }
 
