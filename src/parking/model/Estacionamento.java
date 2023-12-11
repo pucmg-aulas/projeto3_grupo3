@@ -1,6 +1,9 @@
 package parking.model;
 
 import java.util.List;
+
+import parking.archive.EstacionamentoArchive;
+
 import java.io.Serializable;
 public class Estacionamento implements Serializable {
 
@@ -49,12 +52,28 @@ public class Estacionamento implements Serializable {
         return 0.0;
     }
 
-    public double arrecadacaoNoMes(int mes){
-        return 0.0;
+    public double arrecadacaoNoMes(int mes) {
+        double total = 0.0;
+        for (Vaga vaga : vagas) {
+            Veiculo veiculo = vaga.getVeiculo();
+            if (veiculo != null) {
+                total += veiculo.arrecadadoNoMes(mes);
+            }
+        }
+        return total;
     }
 
-    public double valorMedioPorUso(){
-        return 0.0;
+    public double valorMedioPorUso() {
+        double mediaPorUso = 0.0;
+        int contador = 0; 
+        for (Vaga vaga : vagas) {
+            Veiculo veiculo = vaga.getVeiculo();
+            if (veiculo != null) {
+                contador++;
+                mediaPorUso += veiculo.getArrecadado();
+            }
+        }
+        return (contador > 0) ? mediaPorUso / contador : 0.0; 
     }
 
     public String top5Clientes(int mes){
@@ -62,6 +81,8 @@ public class Estacionamento implements Serializable {
     }
 
     public static void addEstacionamento(Estacionamento novoEstacionamento) {
+        EstacionamentoArchive estacionamentoArchive = EstacionamentoArchive.getInstance();
+        estacionamentoArchive.addEstacionamento(novoEstacionamento);
         
     }
 }

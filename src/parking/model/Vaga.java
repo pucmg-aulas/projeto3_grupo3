@@ -34,6 +34,11 @@ public class Vaga implements Serializable {
     }
 
     public boolean sair(){
+
+        if (!disponivel) {
+            disponivel = true;
+            return true;
+        }
         return false;
     }
 
@@ -42,6 +47,7 @@ public class Vaga implements Serializable {
     }
 
     public Integer getId() {
+        
         return this.id;
     }
 
