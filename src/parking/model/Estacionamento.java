@@ -77,7 +77,15 @@ public class Estacionamento implements Serializable {
     }
 
     public String top5Clientes(int mes){
-        return "";
+        double total = 0.0;
+        for (Vaga vaga : vagas) {
+            Veiculo veiculo = vaga.getVeiculo();
+            if (veiculo != null) {
+                total += veiculo.arrecadadoNoMes(mes);
+            }
+        
+        }
+        return "Top 5 clientes: " + total;
     }
 
     public static void addEstacionamento(Estacionamento novoEstacionamento) {
