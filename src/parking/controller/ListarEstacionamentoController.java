@@ -15,6 +15,7 @@ public class ListarEstacionamentoController {
 
     private final ListarEstacionamentoView telaView;
     private EstacionamentoArchive estacionamentoArchive;
+    private HomeController homeController;
 
     private static ListarEstacionamentoController ListarEstacionamentoController;
 
@@ -88,6 +89,8 @@ public class ListarEstacionamentoController {
             estacionamentoArchive.removeEstacionamento(estacionamento);
             JOptionPane.showMessageDialog(telaView, nome + " Excluído com Sucesso!");
             carregarTabela();
+            homeController = HomeController.getInstance();
+            homeController.carregarComboBox();
         } else {
             if (op == JOptionPane.NO_OPTION || op == JOptionPane.CANCEL_OPTION)
                 JOptionPane.showMessageDialog(null, "Operação cancelada");
