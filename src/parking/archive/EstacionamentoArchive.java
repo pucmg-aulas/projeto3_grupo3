@@ -71,10 +71,8 @@ public class EstacionamentoArchive extends AbstractArchive {
             while (resultSet.next()) {
                 String idEstacionamento = resultSet.getString("idEstacionamento");
                 String nomeEstacionamento = resultSet.getString("nomeEstacionamento");
-                // Add other columns as needed
 
                 Estacionamento estacionamento = new Estacionamento(idEstacionamento);
-                // Set other properties as needed
 
                 estacionamentos.add(estacionamento);
             }
@@ -91,7 +89,6 @@ public class EstacionamentoArchive extends AbstractArchive {
 
             preparedStatement.setString(1, estacionamento.getId());
             preparedStatement.setString(2, estacionamento.getNome());
-            // Set other parameters as needed
 
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
@@ -117,7 +114,6 @@ public class EstacionamentoArchive extends AbstractArchive {
                      "UPDATE " + tableName + " SET nomeEstacionamento = ? WHERE idEstacionamento = ?")) {
 
             preparedStatement.setString(1, estacionamentoNovo.getNome());
-            // Set other parameters as needed
             preparedStatement.setString(2, estacionamentoAntigo.getId());
 
             preparedStatement.executeUpdate();
