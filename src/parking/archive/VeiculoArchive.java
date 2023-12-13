@@ -1,11 +1,21 @@
 package parking.archive;
 
+import parking.DB.XulambsDB;
 import parking.model.*;
 
+import java.sql.Connection;
 import java.util.Iterator;
 import java.util.List;
 
 public class VeiculoArchive extends AbstractArchive {
+
+    private static String banco = "xulambs";
+    private static String usuario = "root";
+    private static String senha = "laranbanas02.";
+    private static String url = "jdbc:mariadb://localhost:3306/xulambs";
+
+    private static XulambsDB instancia = null;
+    private static Connection conexao = null;
 
     private static VeiculoArchive veiculoArchive;
     private List<Veiculo> veiculos;

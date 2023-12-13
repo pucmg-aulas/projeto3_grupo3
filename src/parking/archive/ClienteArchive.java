@@ -18,6 +18,14 @@ public class ClienteArchive extends AbstractArchive {
     private final String filePath = "./src/parking/data/Cliente.dat";
     private String tableName;
 
+    private static String banco = "xulambs";
+    private static String usuario = "root";
+    private static String senha = "laranbanas02.";
+    private static String url = "jdbc:mariadb://localhost:3306/xulambs";
+
+    private static XulambsDB instancia = null;
+    private static Connection conexao = null;
+
     private ClienteArchive() {
         clientes = fileRead(filePath);
     }
@@ -58,7 +66,7 @@ public class ClienteArchive extends AbstractArchive {
         }
         return null;
     }
-}
+
 
     private List<Cliente> loadClientesFromDatabase() {
         List<Cliente> clientes = new ArrayList<>();

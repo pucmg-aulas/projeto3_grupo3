@@ -93,4 +93,8 @@ public class Estacionamento implements Serializable {
         estacionamentoArchive.addEstacionamento(novoEstacionamento);
         
     }
+
+    public String getId() {
+        return null;
+    }
 }
