@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author danilo
+ * @author Victor
  */
 public class Database {
 
